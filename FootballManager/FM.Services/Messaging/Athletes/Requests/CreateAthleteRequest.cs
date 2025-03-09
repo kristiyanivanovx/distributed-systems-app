@@ -2,9 +2,9 @@
 {
 	public class CreateAthleteRequest : ServiceRequestBase
 	{
-		public AthleteModel Athlete { get; set; }
+		public AthleteCreateModel Athlete { get; set; }
 
-		public CreateAthleteRequest(AthleteModel athlete)
+		public CreateAthleteRequest(AthleteCreateModel athlete)
 		{
 			Athlete = athlete;
 		}
