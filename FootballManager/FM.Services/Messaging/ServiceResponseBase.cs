@@ -14,5 +14,10 @@ namespace FM.Services.Messaging
         {
             StatusCode = BusinessStatusCodeEnum.None;
         }
+
+        public ServiceResponseBase(BusinessStatusCodeEnum statusCode)
+        {
+            StatusCode = statusCode;
+        }
     }
 }

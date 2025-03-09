@@ -43,6 +43,7 @@ namespace FM.Services.Implementations
             {
                 response.Athletes.Add(new()
                 {
+                    Id = athlete.Id,
                     FirstName = athlete.FirstName,
                     LastName = athlete.LastName,
                     Nationality = athlete.Nationality,
@@ -69,12 +70,14 @@ namespace FM.Services.Implementations
 
             response.Athlete = new()
             {
+                Id = athlete.Id,
                 FirstName = athlete.FirstName,
                 LastName = athlete.LastName,
                 Nationality = athlete.Nationality,
                 //Team = athlete.Team
             };
 
+            response.StatusCode = Messaging.BusinessStatusCodeEnum.Success;
             return response;
         }
 
@@ -93,12 +96,49 @@ namespace FM.Services.Implementations
                     //Team = athlete.Team
 
                 });
+
                 await _context.SaveChangesAsync();
+
+                response.StatusCode = Messaging.BusinessStatusCodeEnum.Success;
+
             }
             catch (Exception ex)
             {
                 response.StatusCode = Messaging.BusinessStatusCodeEnum.InternalServerError;
                 return response;
+            }
+
+            return response;
+        }
+
+        /// <inheritdoc/>
+        public async Task<UpdateAthleteResponse> UpdateAthleteAsync(int id, UpdateAthleteRequest request)
+        {
+            UpdateAthleteResponse response = new();
+
+            var athlete = await _context.Athletes.SingleOrDefaultAsync(x => x.Id == id);
+
+            if (athlete is null)
+            {
+                response.StatusCode = Messaging.BusinessStatusCodeEnum.MissingObject;
+                return response;
+            }
+
+            try
+            {
+                athlete.FirstName = request.Athlete?.FirstName ?? athlete.FirstName;
+                athlete.LastName = request.Athlete?.LastName ?? athlete.LastName;
+                athlete.Nationality = request.Athlete?.Nationality ?? athlete.Nationality;
+
+                _context.Athletes.Update(athlete);
+
+                await _context.SaveChangesAsync();
+
+                response.StatusCode = Messaging.BusinessStatusCodeEnum.Success;
+            }
+            catch (Exception ex)
+            {
+                response.StatusCode = Messaging.BusinessStatusCodeEnum.InternalServerError;
             }
 
             return response;

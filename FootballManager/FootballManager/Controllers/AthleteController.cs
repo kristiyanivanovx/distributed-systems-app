@@ -49,20 +49,7 @@ namespace FM.Web.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAthleteByName([FromRoute] string name)
-            //=> Ok(await _athleteService.GetByNameAsync(new (name)));
-        //public async Task<IActionResult> GetAthleteByName([FromRoute] string name)
-        {
-            var response = await _athleteService.GetByNameAsync(new GetByNameRequest(name));
-            if (response.StatusCode == BusinessStatusCodeEnum.MissingObject)
-            {
-                return NotFound("Athlete not found.");
-            }
-
-            var okResp = Ok(response);
-
-            return okResp;
-        }
-
+            => Ok(await _athleteService.GetByNameAsync(new GetByNameRequest(name) { Name = name }));
 
         /// <summary>
         /// Save athlete.
@@ -76,16 +63,16 @@ namespace FM.Web.Controllers
         public async Task<IActionResult> CreateMovie([FromBody] AthleteModel model) 
             => Ok(await _athleteService.SaveAsync(new (model)));
 
-        //public async Task<IActionResult> CreateAthlete([FromBody] CreateAthleteRequest request)
-        //{
-        //    var response = await _athleteService.SaveAsync(request);
-        //    if (response.StatusCode == BusinessStatusCodeEnum.InternalServerError)
-        //    {
-        //        return StatusCode(500, "Error creating athlete.");
-        //    }
-
-        //    return Ok(response);
-        //}
+        /// <summary>
+        /// Update an athlete.
+        /// </summary>
+        /// <returns>Return null if not successful.</returns>
+        [HttpPut("{id}")]
+        [ProducesResponseType(typeof(UpdateAthleteResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> UpdateAthlete([FromRoute] int id, [FromBody] UpdateAthleteRequest request)
+            => Ok(await _athleteService.UpdateAthleteAsync(id, request));
 
         // TODO: Delete
     }
