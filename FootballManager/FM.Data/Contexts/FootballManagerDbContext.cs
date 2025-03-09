@@ -1,4 +1,5 @@
 ﻿using FM.Data.Entities;
+using FM.Data.Seeders;
 using Microsoft.EntityFrameworkCore;
 
 namespace FM.Data.Contexts
@@ -23,5 +24,11 @@ namespace FM.Data.Contexts
 		/// </summary>
 		/// <param name="options">Database context options.</param>
 		public FootballManagerDbContext(DbContextOptions<FootballManagerDbContext> options) : base(options) { }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Athlete>().HasData(new AthletesSeeder().Seed());
+		}
+
 	}
 }
