@@ -3,7 +3,7 @@ using FM.Services.Implementations;
 using FM.Services.Interfaces;
 using FM.Services.Implementations;
 using FM.Services.Interfaces;
-//using FM.Data.Contexts;
+using FM.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -22,7 +22,7 @@ namespace FM.Web
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");
             string assemblyName = Assembly.GetExecutingAssembly().GetName().Name ?? "wrong name";
-            //builder.Services.AddDbContext<FootballersDbContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly(assemblyName)));
+            builder.Services.AddDbContext<FootballManagerDbContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly(assemblyName)));
 
             builder.Services.AddControllers();
 
