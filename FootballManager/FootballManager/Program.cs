@@ -53,7 +53,7 @@ namespace FM.Web
                 };
             });
 
-            //builder.Services.AddScoped<IOurService, OurService>();
+            builder.Services.AddScoped<IAthleteService, AthleteService>();
             builder.Services.AddAuthorization();
             builder.Services.AddSingleton<IJWTAuthenticationsManager>(new JWTAuthenticationsManager(tokenTokey));
 

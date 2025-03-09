@@ -14,15 +14,15 @@ namespace FM.Services.Interfaces
         /// Get list with athletes.
         /// </summary>
         /// <param name="request">Get athlete request object.</param>
-        /// <returns>Return filter list with athletes.</returns>
-        Task<GetAthleteResponse> GetAthleteAsync(GetAthleteRequest request);
+        /// <returns>Return list with athletes.</returns>
+        Task<GetAllAthletesResponse> GetAllAthletesAsync(GetAllAthletesRequest request);
 
         /// <summary>
         /// Get athlete by name.
         /// </summary>
         /// <param name="request">Get name by request object.</param>
         /// <returns>Return single athete by name.</returns>
-        Task<GetByNameResponse> GetByNameAsync(GetAthleteRequest request);
+        Task<GetByNameResponse> GetByNameAsync(GetByNameRequest request);
 
         /// <summary>
         /// Create athlete.

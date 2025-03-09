@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace FM.Services.Messaging.Requests
 {
-    public class GetAthleteRequest : ServiceRequestBase
+    public class GetAllAthletesRequest : ServiceRequestBase
     {
-        public string Name { get; set; }
-
-        public GetAthleteRequest(string name)
+        public GetAllAthletesRequest()
         {
-            Name = name;
         }
     }
 }

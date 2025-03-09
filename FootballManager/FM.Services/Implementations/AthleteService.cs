@@ -29,9 +29,9 @@ namespace FM.Services.Implementations
         }
 
         /// <inheritdoc/>
-        public async Task<GetAthleteResponse> GetAthleteAsync(GetAthleteRequest request)
+        public async Task<GetAllAthletesResponse> GetAllAthletesAsync(GetAllAthletesRequest request)
         {
-            GetAthleteResponse response = new() { Athletes = new() };
+            GetAllAthletesResponse response = new() { Athletes = new() };
 
             var athletes = await _context.Athletes.ToListAsync();
             if (athletes is null)
@@ -54,11 +54,13 @@ namespace FM.Services.Implementations
         }
 
         /// <inheritdoc/>
-        public async Task<GetByNameResponse> GetByNameAsync(GetAthleteRequest request)
+        public async Task<GetByNameResponse> GetByNameAsync(GetByNameRequest request)
         {
             GetByNameResponse response = new();
 
-            var athlete = await _context.Athletes.SingleOrDefaultAsync(x => x.FirstName == request.Name || x.LastName == request.Name);
+            var athlete = await _context.Athletes
+                .SingleOrDefaultAsync(x => x.FirstName == request.Name || x.LastName == request.Name);
+
             if (athlete is null)
             {
                 response.StatusCode = Messaging.BusinessStatusCodeEnum.MissingObject;
@@ -98,7 +100,6 @@ namespace FM.Services.Implementations
                 response.StatusCode = Messaging.BusinessStatusCodeEnum.InternalServerError;
                 return response;
             }
-
 
             return response;
         }
