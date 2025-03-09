@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FM.Data\FM.Data.csproj" />
+  </ItemGroup>
+
 </Project>
