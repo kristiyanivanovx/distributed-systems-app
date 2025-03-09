@@ -17,7 +17,13 @@ namespace FM.Web.Controllers
             _jwtauthenticationsManager = jwtauthenticationsManager;
         }
 
-        [HttpPut]
+		/// <summary>
+		/// sigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigma
+		/// </summary>
+		/// <param name="clientId"></param>
+		/// <param name="secret"></param>
+		/// <returns></returns>
+		[HttpPut]
         public async Task<AuthenticationResponse> Authenticate([FromQuery] string clientId, [FromQuery] string secret)
         {
             string? token = _jwtauthenticationsManager.Authenticate(clientId, secret);
