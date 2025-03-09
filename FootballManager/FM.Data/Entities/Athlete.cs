@@ -32,6 +32,6 @@ public class Athlete
 	[Column(TypeName = "decimal(19, 2)")]
 	public decimal MarketValue { get; set; }
 	public bool IsActive { get; set; } = true;
-	public DateTime CreatedAt { get; set;  }
+	public DateTime CreatedAt { get; set; }
 
 }

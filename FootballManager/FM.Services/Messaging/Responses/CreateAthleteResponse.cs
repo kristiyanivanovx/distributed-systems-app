@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FM.Services.Messaging.Responses
+﻿namespace FM.Services.Messaging.Responses
 {
-    public class CreateAthleteResponse : ServiceResponseBase
-    {
-    }
+	public class CreateAthleteResponse : ServiceResponseBase
+	{
+	}
 }

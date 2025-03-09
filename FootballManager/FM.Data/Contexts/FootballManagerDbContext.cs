@@ -1,7 +1,6 @@
 ﻿using FM.Data.Entities;
 using FM.Data.Seeders;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace FM.Data.Contexts
 {
