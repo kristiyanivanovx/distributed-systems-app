@@ -20,19 +20,26 @@ namespace FM.Services.Interfaces
 		Task<GetByNameResponse> GetByNameAsync(GetByNameRequest request);
 
 
-    /// <summary>
-    /// Create athlete.
-    /// </summary>
-    /// <param name="request">Create athlete request object.</param>
-    /// <returns>Return 200 ok.</returns>
-    Task<CreateAthleteResponse> SaveAsync(CreateAthleteRequest request);
+		/// <summary>
+		/// Create athlete.
+		/// </summary>
+		/// <param name="request">Create athlete request object.</param>
+		/// <returns>Return 200 ok.</returns>
+		Task<CreateAthleteResponse> SaveAsync(CreateAthleteRequest request);
 
-    /// <summary>
-    /// Update an athlete.
-    /// </summary>
-    /// <param name="id">Id of athlete object to update.</param>
-    /// <param name="request">Update athlete request object.</param>
-    /// <returns>Return 200 ok.</returns>
-    Task<UpdateAthleteResponse> UpdateAthleteAsync(int id, UpdateAthleteRequest request);
-  }
+		/// <summary>
+		/// Update an athlete.
+		/// </summary>
+		/// <param name="id">Id of athlete object to update.</param>
+		/// <param name="request">Update athlete request object.</param>
+		/// <returns>Return 200 ok.</returns>
+		Task<UpdateAthleteResponse> UpdateAthleteAsync(int id, UpdateAthleteRequest request);
+
+		/// <summary>
+		/// Delete an athlete.
+		/// </summary>
+		/// <param name="id">Id of athlete object to delete.</param>
+		/// <returns>Return 200 ok.</returns>
+		Task<DeleteAthleteResponse> SoftDeleteAthleteAsync(DeleteAthleteRequest request);
+	}
 }

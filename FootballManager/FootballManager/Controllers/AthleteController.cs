@@ -60,7 +60,7 @@ namespace FM.Web.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateAthlete([FromBody] AthleteModel model) 
+        public async Task<IActionResult> CreateAthlete([FromBody] AthleteCreateModel model) 
             => Ok(await _athleteService.SaveAsync(new (model)));
 
         /// <summary>
@@ -74,6 +74,15 @@ namespace FM.Web.Controllers
         public async Task<IActionResult> UpdateAthlete([FromRoute] int id, [FromBody] UpdateAthleteRequest request)
             => Ok(await _athleteService.UpdateAthleteAsync(id, request));
 
-        // TODO: Delete
-    }
+		/// <summary>
+		/// Soft delete an athlete.
+		/// </summary>
+		/// <returns>Return null if not successful.</returns>
+		[HttpDelete("{id}")]
+		[ProducesResponseType(typeof(DeleteAthleteResponse), StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+		[ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
+		public async Task<IActionResult> DeleteAthlete([FromRoute] int id)
+			=> Ok(await _athleteService.SoftDeleteAthleteAsync(new DeleteAthleteRequest { Id = id }));
+	}
 }
