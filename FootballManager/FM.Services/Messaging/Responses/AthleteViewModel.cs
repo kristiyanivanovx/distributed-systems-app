@@ -1,10 +1,12 @@
 ﻿namespace FM.Services.Messaging.Responses
 {
-	public class AthleteViewModel
-	{
-		required public string FirstName { get; set; }
+    public class AthleteViewModel
+    {
+    public int Id { get; set; }
 
-		required public string LastName { get; set; }
+    required public string FirstName { get; set; }
+
+    required public string LastName { get; set; }
 
 		public string Nationality { get; set; }
 
