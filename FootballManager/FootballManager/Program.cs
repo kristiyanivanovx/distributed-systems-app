@@ -1,5 +1,5 @@
 
-namespace FootballManager
+namespace FM.Web
 {
     public class Program
     {
