@@ -4,6 +4,7 @@ using FM.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FM.Data.Migrations
 {
     [DbContext(typeof(FootballManagerDbContext))]
-    partial class FootballManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250309192746_ExtendedModels")]
+    partial class ExtendedModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,7 +71,7 @@ namespace FM.Data.Migrations
                             FirstName = "Cristiano",
                             IsActive = true,
                             LastName = "Ronaldo",
-                            MarketValue = 200000000m,
+                            MarketValue = 0m,
                             Nationality = "Portugal",
                             Position = 7
                         },
@@ -79,7 +82,7 @@ namespace FM.Data.Migrations
                             FirstName = "Erling",
                             IsActive = true,
                             LastName = "Haaland",
-                            MarketValue = 250000000m,
+                            MarketValue = 0m,
                             Nationality = "Norway",
                             Position = 7
                         },
@@ -90,7 +93,7 @@ namespace FM.Data.Migrations
                             FirstName = "Kylian",
                             IsActive = true,
                             LastName = "Mbappe",
-                            MarketValue = 230000000m,
+                            MarketValue = 0m,
                             Nationality = "France",
                             Position = 7
                         },
@@ -101,7 +104,7 @@ namespace FM.Data.Migrations
                             FirstName = "Vinicius",
                             IsActive = true,
                             LastName = "Junior",
-                            MarketValue = 100000000m,
+                            MarketValue = 0m,
                             Nationality = "Brazil",
                             Position = 8
                         },
@@ -112,7 +115,7 @@ namespace FM.Data.Migrations
                             FirstName = "Luis",
                             IsActive = true,
                             LastName = "Diaz",
-                            MarketValue = 110000000m,
+                            MarketValue = 0m,
                             Nationality = "Columbia",
                             Position = 8
                         },
@@ -123,7 +126,7 @@ namespace FM.Data.Migrations
                             FirstName = "Khvicha",
                             IsActive = true,
                             LastName = "Kvaratskhelia",
-                            MarketValue = 200000000m,
+                            MarketValue = 0m,
                             Nationality = "Brazil",
                             Position = 8
                         },
@@ -134,7 +137,7 @@ namespace FM.Data.Migrations
                             FirstName = "Lamine",
                             IsActive = true,
                             LastName = "Yamal",
-                            MarketValue = 180000000m,
+                            MarketValue = 0m,
                             Nationality = "Spain",
                             Position = 9
                         },
@@ -145,7 +148,7 @@ namespace FM.Data.Migrations
                             FirstName = "Bukayo",
                             IsActive = true,
                             LastName = "Saka",
-                            MarketValue = 150000000m,
+                            MarketValue = 0m,
                             Nationality = "England",
                             Position = 9
                         },
@@ -156,7 +159,7 @@ namespace FM.Data.Migrations
                             FirstName = "Phil",
                             IsActive = true,
                             LastName = "Foden",
-                            MarketValue = 160000000m,
+                            MarketValue = 0m,
                             Nationality = "England",
                             Position = 9
                         },
@@ -167,7 +170,7 @@ namespace FM.Data.Migrations
                             FirstName = "Jude",
                             IsActive = true,
                             LastName = "Bellingham",
-                            MarketValue = 1400000000m,
+                            MarketValue = 0m,
                             Nationality = "England",
                             Position = 5
                         },
@@ -178,7 +181,7 @@ namespace FM.Data.Migrations
                             FirstName = "Florian",
                             IsActive = true,
                             LastName = "Wirtz",
-                            MarketValue = 120000000m,
+                            MarketValue = 0m,
                             Nationality = "Germany",
                             Position = 5
                         },
@@ -189,7 +192,7 @@ namespace FM.Data.Migrations
                             FirstName = "Jamal",
                             IsActive = true,
                             LastName = "Musiala",
-                            MarketValue = 100000000m,
+                            MarketValue = 0m,
                             Nationality = "Germany",
                             Position = 5
                         },
@@ -200,7 +203,7 @@ namespace FM.Data.Migrations
                             FirstName = "Cole",
                             IsActive = true,
                             LastName = "Palmer",
-                            MarketValue = 90000000m,
+                            MarketValue = 0m,
                             Nationality = "England",
                             Position = 5
                         },
@@ -211,7 +214,7 @@ namespace FM.Data.Migrations
                             FirstName = "Federico",
                             IsActive = true,
                             LastName = "Valverde",
-                            MarketValue = 800000000m,
+                            MarketValue = 0m,
                             Nationality = "Uruguay",
                             Position = 4
                         },
@@ -222,7 +225,7 @@ namespace FM.Data.Migrations
                             FirstName = "Declan",
                             IsActive = true,
                             LastName = "Rice",
-                            MarketValue = 100000000m,
+                            MarketValue = 0m,
                             Nationality = "England",
                             Position = 4
                         },
@@ -233,7 +236,7 @@ namespace FM.Data.Migrations
                             FirstName = "Eduardo",
                             IsActive = true,
                             LastName = "Camavinga",
-                            MarketValue = 140000000m,
+                            MarketValue = 0m,
                             Nationality = "France",
                             Position = 4
                         },
@@ -244,7 +247,7 @@ namespace FM.Data.Migrations
                             FirstName = "Alexis",
                             IsActive = true,
                             LastName = "Mac Allister",
-                            MarketValue = 130000000m,
+                            MarketValue = 0m,
                             Nationality = "Argentina",
                             Position = 4
                         },
@@ -255,7 +258,7 @@ namespace FM.Data.Migrations
                             FirstName = "Nicolo",
                             IsActive = true,
                             LastName = "Barella",
-                            MarketValue = 110000000m,
+                            MarketValue = 0m,
                             Nationality = "Italy",
                             Position = 4
                         },
@@ -266,7 +269,7 @@ namespace FM.Data.Migrations
                             FirstName = "Enzo",
                             IsActive = true,
                             LastName = "Fernandez",
-                            MarketValue = 100000000m,
+                            MarketValue = 0m,
                             Nationality = "Argentina",
                             Position = 4
                         },
@@ -277,7 +280,7 @@ namespace FM.Data.Migrations
                             FirstName = "Dominik",
                             IsActive = true,
                             LastName = "Szoboszlai",
-                            MarketValue = 90000000m,
+                            MarketValue = 0m,
                             Nationality = "Hungary",
                             Position = 4
                         },
@@ -288,7 +291,7 @@ namespace FM.Data.Migrations
                             FirstName = "Moises",
                             IsActive = true,
                             LastName = "Caicedo",
-                            MarketValue = 80000000m,
+                            MarketValue = 0m,
                             Nationality = "Ecuador",
                             Position = 6
                         },
@@ -299,7 +302,7 @@ namespace FM.Data.Migrations
                             FirstName = "Bruno",
                             IsActive = true,
                             LastName = "Guimaraes",
-                            MarketValue = 750000000m,
+                            MarketValue = 0m,
                             Nationality = "Brazil",
                             Position = 6
                         },
@@ -310,7 +313,7 @@ namespace FM.Data.Migrations
                             FirstName = "Aurélien",
                             IsActive = true,
                             LastName = "Tchouaméni",
-                            MarketValue = 890000000m,
+                            MarketValue = 0m,
                             Nationality = "France",
                             Position = 6
                         },
@@ -321,7 +324,7 @@ namespace FM.Data.Migrations
                             FirstName = "Joao",
                             IsActive = true,
                             LastName = "Neves",
-                            MarketValue = 132000000m,
+                            MarketValue = 0m,
                             Nationality = "Portugal",
                             Position = 6
                         },
@@ -332,7 +335,7 @@ namespace FM.Data.Migrations
                             FirstName = "Martin",
                             IsActive = true,
                             LastName = "Zubimendi",
-                            MarketValue = 120000000m,
+                            MarketValue = 0m,
                             Nationality = "Spain",
                             Position = 6
                         },
@@ -343,7 +346,7 @@ namespace FM.Data.Migrations
                             FirstName = "William",
                             IsActive = true,
                             LastName = "Saliba",
-                            MarketValue = 120000000m,
+                            MarketValue = 0m,
                             Nationality = "France",
                             Position = 3
                         },
@@ -354,7 +357,7 @@ namespace FM.Data.Migrations
                             FirstName = "Josko",
                             IsActive = true,
                             LastName = "Gvardiol",
-                            MarketValue = 120000000m,
+                            MarketValue = 0m,
                             Nationality = "Croatia",
                             Position = 2
                         },
@@ -365,7 +368,7 @@ namespace FM.Data.Migrations
                             FirstName = "Gabriel",
                             IsActive = true,
                             LastName = "Magalhaes",
-                            MarketValue = 160000000m,
+                            MarketValue = 0m,
                             Nationality = "Brazil",
                             Position = 3
                         },
@@ -376,7 +379,7 @@ namespace FM.Data.Migrations
                             FirstName = "Alessandro",
                             IsActive = true,
                             LastName = "Bastoni",
-                            MarketValue = 136000000m,
+                            MarketValue = 0m,
                             Nationality = "Italy",
                             Position = 3
                         },
@@ -387,7 +390,7 @@ namespace FM.Data.Migrations
                             FirstName = "Trent",
                             IsActive = true,
                             LastName = "Alexander-Arnold",
-                            MarketValue = 74000000m,
+                            MarketValue = 0m,
                             Nationality = "England",
                             Position = 1
                         },
@@ -398,7 +401,7 @@ namespace FM.Data.Migrations
                             FirstName = "Ruben",
                             IsActive = true,
                             LastName = "Dias",
-                            MarketValue = 112000000m,
+                            MarketValue = 0m,
                             Nationality = "Portugal",
                             Position = 3
                         },
@@ -409,7 +412,7 @@ namespace FM.Data.Migrations
                             FirstName = "Pau",
                             IsActive = true,
                             LastName = "Cubarsi",
-                            MarketValue = 102000000m,
+                            MarketValue = 0m,
                             Nationality = "Spain",
                             Position = 3
                         },
@@ -420,7 +423,7 @@ namespace FM.Data.Migrations
                             FirstName = "Cristian",
                             IsActive = true,
                             LastName = "Romero",
-                            MarketValue = 102000000m,
+                            MarketValue = 0m,
                             Nationality = "Argentina",
                             Position = 3
                         },
@@ -431,7 +434,7 @@ namespace FM.Data.Migrations
                             FirstName = "Jules",
                             IsActive = true,
                             LastName = "Kounde",
-                            MarketValue = 130000000m,
+                            MarketValue = 0m,
                             Nationality = "France",
                             Position = 1
                         },
@@ -442,7 +445,7 @@ namespace FM.Data.Migrations
                             FirstName = "Achraf",
                             IsActive = true,
                             LastName = "Hakimi",
-                            MarketValue = 82000000m,
+                            MarketValue = 0m,
                             Nationality = "Morroco",
                             Position = 1
                         },
@@ -453,7 +456,7 @@ namespace FM.Data.Migrations
                             FirstName = "Federico",
                             IsActive = true,
                             LastName = "Dimarco",
-                            MarketValue = 67000000m,
+                            MarketValue = 0m,
                             Nationality = "Italy",
                             Position = 2
                         },
@@ -464,7 +467,7 @@ namespace FM.Data.Migrations
                             FirstName = "Nunu",
                             IsActive = true,
                             LastName = "Mendes",
-                            MarketValue = 102000000m,
+                            MarketValue = 0m,
                             Nationality = "Portugal",
                             Position = 2
                         },
@@ -475,7 +478,7 @@ namespace FM.Data.Migrations
                             FirstName = "Alejandro",
                             IsActive = true,
                             LastName = "Balde",
-                            MarketValue = 98000000m,
+                            MarketValue = 0m,
                             Nationality = "Spain",
                             Position = 2
                         },
@@ -486,7 +489,7 @@ namespace FM.Data.Migrations
                             FirstName = "Giorgi",
                             IsActive = true,
                             LastName = "Mamardashvilli",
-                            MarketValue = 50000000m,
+                            MarketValue = 0m,
                             Nationality = "Georgia",
                             Position = 0
                         },
@@ -497,7 +500,7 @@ namespace FM.Data.Migrations
                             FirstName = "Diogo",
                             IsActive = true,
                             LastName = "Costa",
-                            MarketValue = 150000000m,
+                            MarketValue = 0m,
                             Nationality = "Portugal",
                             Position = 0
                         },
@@ -508,7 +511,7 @@ namespace FM.Data.Migrations
                             FirstName = "David",
                             IsActive = true,
                             LastName = "Raya",
-                            MarketValue = 102000000m,
+                            MarketValue = 0m,
                             Nationality = "Spain",
                             Position = 0
                         },
@@ -519,7 +522,7 @@ namespace FM.Data.Migrations
                             FirstName = "Gregor",
                             IsActive = true,
                             LastName = "Kobel",
-                            MarketValue = 102000000m,
+                            MarketValue = 0m,
                             Nationality = "Switzerland",
                             Position = 0
                         },
@@ -530,7 +533,7 @@ namespace FM.Data.Migrations
                             FirstName = "Gianluigi",
                             IsActive = true,
                             LastName = "Donnarumma",
-                            MarketValue = 130000000m,
+                            MarketValue = 0m,
                             Nationality = "Italy",
                             Position = 0
                         },
@@ -541,7 +544,7 @@ namespace FM.Data.Migrations
                             FirstName = "Guglielmo",
                             IsActive = true,
                             LastName = "Vicario",
-                            MarketValue = 99000000m,
+                            MarketValue = 0m,
                             Nationality = "Italy",
                             Position = 0
                         },
@@ -552,7 +555,7 @@ namespace FM.Data.Migrations
                             FirstName = "Andre",
                             IsActive = true,
                             LastName = "Onana",
-                            MarketValue = 104000000m,
+                            MarketValue = 0m,
                             Nationality = "Cameroon",
                             Position = 0
                         },
@@ -563,7 +566,7 @@ namespace FM.Data.Migrations
                             FirstName = "Mike",
                             IsActive = true,
                             LastName = "Maignan",
-                            MarketValue = 92000000m,
+                            MarketValue = 0m,
                             Nationality = "France",
                             Position = 0
                         },
@@ -574,7 +577,7 @@ namespace FM.Data.Migrations
                             FirstName = "Lucas",
                             IsActive = true,
                             LastName = "Chevalier",
-                            MarketValue = 30000000m,
+                            MarketValue = 0m,
                             Nationality = "France",
                             Position = 0
                         },
@@ -585,7 +588,7 @@ namespace FM.Data.Migrations
                             FirstName = "Unai",
                             IsActive = true,
                             LastName = "Simon",
-                            MarketValue = 540000000m,
+                            MarketValue = 0m,
                             Nationality = "Spain",
                             Position = 0
                         },
@@ -596,7 +599,7 @@ namespace FM.Data.Migrations
                             FirstName = "Anatoliy",
                             IsActive = true,
                             LastName = "Trubin",
-                            MarketValue = 760000000m,
+                            MarketValue = 0m,
                             Nationality = "Ukraine",
                             Position = 0
                         });

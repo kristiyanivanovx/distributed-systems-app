@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FM.Data.Contexts;
+﻿using FM.Data.Contexts;
 using FM.Services.Interfaces;
 using FM.Services.Messaging.Requests;
 using FM.Services.Messaging.Responses;
-using FM.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
-using FM.Data.Entities;
-
 
 namespace FM.Services.Implementations
 {

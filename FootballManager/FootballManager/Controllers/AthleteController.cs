@@ -1,4 +1,4 @@
-﻿using FM.Services.Interfaces;
+using FM.Services.Interfaces;
 using FM.Services.Messaging;
 using FM.Services.Messaging.Requests;
 using FM.Services.Messaging.Responses;
@@ -34,7 +34,7 @@ namespace FM.Web.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetMovie() 
+        public async Task<IActionResult> GetAllAthletes() 
             => Ok(await _athleteService.GetAllAthletesAsync(new ()));
 
 
@@ -60,7 +60,7 @@ namespace FM.Web.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateMovie([FromBody] AthleteModel model) 
+        public async Task<IActionResult> CreateAthlete([FromBody] AthleteModel model) 
             => Ok(await _athleteService.SaveAsync(new (model)));
 
         /// <summary>

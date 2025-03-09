@@ -16,6 +16,7 @@ namespace FM.Data.Contexts
 		public DbSet<User> User { get; set; }
 		public DbSet<Team> Teams { get; set; }
 		public DbSet<AthleteTeam> AthleteTeam { get; set; }
+		public DbSet<Transfer> Transfers { get; set; }
 
 		public FootballManagerDbContext() { }
 
@@ -28,6 +29,19 @@ namespace FM.Data.Contexts
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Athlete>().HasData(new AthletesSeeder().Seed());
+
+			modelBuilder.Entity<Athlete>()
+				.Property(b => b.CreatedAt)
+				.HasDefaultValueSql("getutcdate()");
+
+			modelBuilder.Entity<Team>()
+				.Property(b => b.CreatedAt)
+				.HasDefaultValueSql("getutcdate()");
+
+			modelBuilder.Entity<Transfer>()
+				.Property(b => b.CreatedAt)
+				.HasDefaultValueSql("getutcdate()");
+
 		}
 
 	}

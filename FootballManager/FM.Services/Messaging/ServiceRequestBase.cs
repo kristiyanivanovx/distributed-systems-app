@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FM.Services.Messaging
+﻿namespace FM.Services.Messaging
 {
-    public abstract class ServiceRequestBase
-    {
-    }
+	public abstract class ServiceRequestBase
+	{
+	}
 }

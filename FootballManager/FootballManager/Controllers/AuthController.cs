@@ -1,20 +1,19 @@
 ﻿using FM.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FM.Web.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController : ControllerBase
-    {
-        private readonly IJWTAuthenticationsManager _jwtauthenticationsManager;
+	[Route("api/[controller]")]
+	[ApiController]
+	public class AuthController : ControllerBase
+	{
+		private readonly IJWTAuthenticationsManager _jwtauthenticationsManager;
 
-        public AuthController(IJWTAuthenticationsManager jwtauthenticationsManager)
-        {
-            _jwtauthenticationsManager = jwtauthenticationsManager;
-        }
+		public AuthController(IJWTAuthenticationsManager jwtauthenticationsManager)
+		{
+			_jwtauthenticationsManager = jwtauthenticationsManager;
+		}
 
 		/// <summary>
 		/// sigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigma
@@ -23,18 +22,25 @@ namespace FM.Web.Controllers
 		/// <param name="secret"></param>
 		/// <returns></returns>
 		[HttpPut]
-        public async Task<AuthenticationResponse> Authenticate([FromQuery] string clientId, [FromQuery] string secret)
-        {
-            string? token = _jwtauthenticationsManager.Authenticate(clientId, secret);
+		public async Task<AuthenticationResponse> Authenticate([FromQuery] string clientId, [FromQuery] string secret)
+		{
+			string? token = _jwtauthenticationsManager.Authenticate(clientId, secret);
 
-            ArgumentNullException.ThrowIfNull(token);
+			ArgumentNullException.ThrowIfNull(token);
 
-            return await Task.FromResult(new AuthenticationResponse() { Token = token });
-        }
-    }
+			return await Task.FromResult(new AuthenticationResponse() { Token = token });
+		}
 
-    public class AuthenticationResponse
-    {
-        required public string Token { get; set; }
-    }
+		[Authorize]
+		[HttpGet("test")]
+		public async Task<IActionResult> GetTest()
+		{
+			return Ok();
+		}
+	}
+
+	public class AuthenticationResponse
+	{
+		required public string Token { get; set; }
+	}
 }
