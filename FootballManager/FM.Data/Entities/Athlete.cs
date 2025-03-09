@@ -1,4 +1,6 @@
-﻿namespace FM.Data.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FM.Data.Entities;
 public class Athlete
 {
 	public enum AthletePosition
@@ -16,7 +18,7 @@ public class Athlete
 	}
 
 	// Team, Athlete, Match, Club
-
+	[Key]
 	public int Id { get; set; }
 	public string FirstName { get; set; }
 	public string LastName { get; set; }
