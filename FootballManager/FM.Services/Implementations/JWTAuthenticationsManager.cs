@@ -12,7 +12,7 @@ using System.Text;
 
 namespace FM.Services.Implementations
 {
-    internal class JWTAuthenticationsManager : IJWTAuthenticationsManager
+    public class JWTAuthenticationsManager : IJWTAuthenticationsManager
     {
         private readonly Dictionary<string, string> _clients = new()
         {
