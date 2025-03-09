@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace FM.Services.Messaging
 {
-    public abstract class ServiceResponseBase
-    {
-        public BusinessStatusCodeEnum StatusCode { get; set; }
+	public abstract class ServiceResponseBase
+	{
+		public BusinessStatusCodeEnum StatusCode { get; set; }
 
-        public ServiceResponseBase()
-        {
-            StatusCode = BusinessStatusCodeEnum.None;
-        }
-    }
+		public ServiceResponseBase()
+		{
+			StatusCode = BusinessStatusCodeEnum.None;
+		}
+
+		public ServiceResponseBase(BusinessStatusCodeEnum statusCode)
+		{
+			StatusCode = statusCode;
+		}
+	}
 }

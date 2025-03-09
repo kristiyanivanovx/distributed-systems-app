@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FM.Web.Controllers
 {
-    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -17,13 +16,13 @@ namespace FM.Web.Controllers
             _jwtauthenticationsManager = jwtauthenticationsManager;
         }
 
-		/// <summary>
-		/// sigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigma
-		/// </summary>
-		/// <param name="clientId"></param>
-		/// <param name="secret"></param>
-		/// <returns></returns>
-		[HttpPut]
+        /// <summary>
+        /// sigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigmasigma
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="secret"></param>
+        /// <returns></returns>
+        [HttpPut]
         public async Task<AuthenticationResponse> Authenticate([FromQuery] string clientId, [FromQuery] string secret)
         {
             string? token = _jwtauthenticationsManager.Authenticate(clientId, secret);
@@ -31,6 +30,13 @@ namespace FM.Web.Controllers
             ArgumentNullException.ThrowIfNull(token);
 
             return await Task.FromResult(new AuthenticationResponse() { Token = token });
+        }
+
+		[Authorize]
+		[HttpGet("test")]
+        public async Task<IActionResult> GetTest()
+        {
+            return Ok();
         }
     }
 
