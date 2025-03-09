@@ -1,10 +1,10 @@
-﻿namespace FM.Services.Messaging
+namespace FM.Services.Messaging
 {
-	public enum BusinessStatusCodeEnum
-	{
-		None,
-		Success,
-		MissingObject,
-		InternalServerError,
-	}
+    public enum BusinessStatusCodeEnum
+    {
+        None = 0,
+        Success = 200,
+        MissingObject = 404,
+        InternalServerError = 500,
+    }
 }
