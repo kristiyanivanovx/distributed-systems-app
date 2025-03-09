@@ -12,6 +12,9 @@ namespace FM.Data.Contexts
 		/// Gets or sets movie dbset collection.
 		/// </summary>
 		public DbSet<Athlete> Athletes { get; set; }
+		public DbSet<User> User { get; set; }
+		public DbSet<Team> Teams { get; set; }
+		public DbSet<AthleteTeam> AthleteTeam { get; set; }
 
 		public FootballManagerDbContext() { }
 
