@@ -9,13 +9,17 @@ public class Transfer
 	[Required]
 	public required int AthleteId { get; set; }
 	[Required]
-	public required int TeamId { get; set; }
+	public required int NewTeamId { get; set; }
+	[Required]
+	public required int OldTeamId { get; set; }
 	[Required]
 	[Column(TypeName = "decimal(19, 2)")]
 	public required decimal TransferValue { get; set; }
 	[ForeignKey(nameof(AthleteId))]
 	public Athlete Athlete { get; set; }
-	[ForeignKey(nameof(TeamId))]
-	public Team Team { get; set; }
+	[ForeignKey(nameof(NewTeamId))]
+	public Team NewTeam { get; set; }
+	[ForeignKey(nameof(OldTeamId))]
+	public Team OldTeam { get; set; }
 	public DateTime CreatedAt { get; set; }
 }

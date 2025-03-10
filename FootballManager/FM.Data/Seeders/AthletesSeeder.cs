@@ -13,6 +13,7 @@ public class AthletesSeeder : ISeeder<Athlete>
 
 	public IEnumerable<Athlete> Seed()
 	{
+		Random rand = new Random();
 		return [
 			#region Forwards
 			new Athlete()
@@ -22,7 +23,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Ronaldo",
 				Nationality = "Portugal",
 				Position = AthletePosition.Forward,
-				MarketValue = 200000000
+				MarketValue = 200000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -30,9 +32,9 @@ public class AthletesSeeder : ISeeder<Athlete>
 				FirstName = "Erling",
 				LastName = "Haaland",
 				Nationality = "Norway",
-				Position = AthletePosition.Forward
-				,
-				MarketValue = 250000000
+				Position = AthletePosition.Forward,
+				MarketValue = 250000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -41,7 +43,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Mbappe",
 				Nationality = "France",
 				Position = AthletePosition.Forward,
-				MarketValue = 230000000
+				MarketValue = 230000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -50,7 +53,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Junior",
 				Nationality = "Brazil",
 				Position = AthletePosition.LeftWing,
-				MarketValue = 100000000
+				MarketValue = 100000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -59,7 +63,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Diaz",
 				Nationality = "Columbia",
 				Position = AthletePosition.LeftWing,
-				MarketValue = 110000000
+				MarketValue = 110000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -68,7 +73,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Kvaratskhelia",
 				Nationality = "Brazil",
 				Position = AthletePosition.LeftWing,
-				MarketValue = 200000000
+				MarketValue = 200000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -77,7 +83,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Yamal",
 				Nationality = "Spain",
 				Position = AthletePosition.RightWing,
-				MarketValue = 180000000
+				MarketValue = 180000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -86,7 +93,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Saka",
 				Nationality = "England",
 				Position = AthletePosition.RightWing,
-				MarketValue = 150000000
+				MarketValue = 150000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -95,7 +103,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Foden",
 				Nationality = "England",
 				Position = AthletePosition.RightWing,
-				MarketValue = 160000000
+				MarketValue = 160000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			#endregion
 
@@ -107,7 +116,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Bellingham",
 				Nationality = "England",
 				Position = AthletePosition.AttackingMidfield,
-				MarketValue = 1400000000
+				MarketValue = 1400000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -116,7 +126,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Wirtz",
 				Nationality = "Germany",
 				Position = AthletePosition.AttackingMidfield,
-				MarketValue = 120000000
+				MarketValue = 120000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -125,7 +136,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Musiala",
 				Nationality = "Germany",
 				Position = AthletePosition.AttackingMidfield,
-				MarketValue = 100000000
+				MarketValue = 100000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -134,7 +146,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Palmer",
 				Nationality = "England",
 				Position = AthletePosition.AttackingMidfield,
-				MarketValue = 90000000
+				MarketValue = 90000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -143,7 +156,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Valverde",
 				Nationality = "Uruguay",
 				Position = AthletePosition.CenterMidfield,
-				MarketValue = 800000000
+				MarketValue = 800000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -152,7 +166,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Rice",
 				Nationality = "England",
 				Position = AthletePosition.CenterMidfield,
-				MarketValue = 100000000
+				MarketValue = 100000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -161,7 +176,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Camavinga",
 				Nationality = "France",
 				Position = AthletePosition.CenterMidfield,
-				MarketValue = 140000000
+				MarketValue = 140000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -170,7 +186,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Mac Allister",
 				Nationality = "Argentina",
 				Position = AthletePosition.CenterMidfield,
-				MarketValue = 130000000
+				MarketValue = 130000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -179,7 +196,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Barella",
 				Nationality = "Italy",
 				Position = AthletePosition.CenterMidfield,
-				MarketValue = 110000000
+				MarketValue = 110000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -188,7 +206,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Fernandez",
 				Nationality = "Argentina",
 				Position = AthletePosition.CenterMidfield,
-				MarketValue = 100000000
+				MarketValue = 100000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -197,7 +216,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Szoboszlai",
 				Nationality = "Hungary",
 				Position = AthletePosition.CenterMidfield,
-				MarketValue = 90000000
+				MarketValue = 90000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -206,7 +226,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Caicedo",
 				Nationality = "Ecuador",
 				Position = AthletePosition.DefensiveMidfield,
-				MarketValue = 80000000
+				MarketValue = 80000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -215,7 +236,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Guimaraes",
 				Nationality = "Brazil",
 				Position = AthletePosition.DefensiveMidfield,
-				MarketValue = 750000000
+				MarketValue = 750000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -224,7 +246,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Tchouaméni",
 				Nationality = "France",
 				Position = AthletePosition.DefensiveMidfield,
-				MarketValue = 890000000
+				MarketValue = 890000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -233,7 +256,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Neves",
 				Nationality = "Portugal",
 				Position = AthletePosition.DefensiveMidfield,
-				MarketValue = 132000000
+				MarketValue = 132000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -242,7 +266,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Zubimendi",
 				Nationality = "Spain",
 				Position = AthletePosition.DefensiveMidfield,
-				MarketValue = 120000000
+				MarketValue = 120000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 
 			#endregion
@@ -255,7 +280,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Saliba",
 				Nationality = "France",
 				Position = AthletePosition.Centerback,
-				MarketValue = 120000000
+				MarketValue = 120000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -264,7 +290,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Gvardiol",
 				Nationality = "Croatia",
 				Position = AthletePosition.LeftFullback,
-				MarketValue = 120000000
+				MarketValue = 120000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -273,7 +300,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Magalhaes",
 				Nationality = "Brazil",
 				Position = AthletePosition.Centerback,
-				MarketValue = 160000000
+				MarketValue = 160000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -282,7 +310,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Bastoni",
 				Nationality = "Italy",
 				Position = AthletePosition.Centerback,
-				MarketValue = 136000000
+				MarketValue = 136000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -291,7 +320,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Alexander-Arnold",
 				Nationality = "England",
 				Position = AthletePosition.RightFullback,
-				MarketValue = 74000000
+				MarketValue = 74000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -300,7 +330,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Dias",
 				Nationality = "Portugal",
 				Position = AthletePosition.Centerback,
-				MarketValue = 112000000
+				MarketValue = 112000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -309,7 +340,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Cubarsi",
 				Nationality = "Spain",
 				Position = AthletePosition.Centerback,
-				MarketValue = 102000000
+				MarketValue = 102000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -318,7 +350,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Romero",
 				Nationality = "Argentina",
 				Position = AthletePosition.Centerback,
-				MarketValue = 102000000
+				MarketValue = 102000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -327,7 +360,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Kounde",
 				Nationality = "France",
 				Position = AthletePosition.RightFullback,
-				MarketValue = 130000000
+				MarketValue = 130000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -336,7 +370,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Hakimi",
 				Nationality = "Morroco",
 				Position = AthletePosition.RightFullback,
-				MarketValue = 82000000
+				MarketValue = 82000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -345,7 +380,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Dimarco",
 				Nationality = "Italy",
 				Position = AthletePosition.LeftFullback,
-				MarketValue = 67000000
+				MarketValue = 67000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -354,7 +390,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Mendes",
 				Nationality = "Portugal",
 				Position = AthletePosition.LeftFullback,
-				MarketValue = 102000000
+				MarketValue = 102000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -363,7 +400,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Balde",
 				Nationality = "Spain",
 				Position = AthletePosition.LeftFullback,
-				MarketValue = 98000000
+				MarketValue = 98000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			#endregion
 
@@ -375,7 +413,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Mamardashvilli",
 				Nationality = "Georgia",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 50000000
+				MarketValue = 50000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -384,7 +423,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Costa",
 				Nationality = "Portugal",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 150000000
+				MarketValue = 150000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -393,7 +433,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Raya",
 				Nationality = "Spain",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 102000000
+				MarketValue = 102000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -402,7 +443,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Kobel",
 				Nationality = "Switzerland",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 102000000
+				MarketValue = 102000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -411,7 +453,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Donnarumma",
 				Nationality = "Italy",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 130000000
+				MarketValue = 130000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -420,7 +463,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Vicario",
 				Nationality = "Italy",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 99000000
+				MarketValue = 99000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -429,7 +473,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Onana",
 				Nationality = "Cameroon",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 104000000
+				MarketValue = 104000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -438,7 +483,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Maignan",
 				Nationality = "France",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 92000000
+				MarketValue = 92000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -447,7 +493,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Chevalier",
 				Nationality = "France",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 30000000
+				MarketValue = 30000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -456,7 +503,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Simon",
 				Nationality = "Spain",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 540000000
+				MarketValue = 540000000,
+				TeamId = rand.Next(1, 6) * -1
 			},
 			new Athlete()
 			{
@@ -465,7 +513,8 @@ public class AthletesSeeder : ISeeder<Athlete>
 				LastName = "Trubin",
 				Nationality = "Ukraine",
 				Position = AthletePosition.Goalkeeper,
-				MarketValue = 760000000
+				MarketValue = 760000000,
+				TeamId = rand.Next(1, 6) * -1
 			}
 			#endregion
 		];

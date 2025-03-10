@@ -15,7 +15,6 @@ namespace FM.Data.Contexts
 		public DbSet<Athlete> Athletes { get; set; }
 		public DbSet<User> User { get; set; }
 		public DbSet<Team> Teams { get; set; }
-		public DbSet<AthleteTeam> AthleteTeam { get; set; }
 		public DbSet<Transfer> Transfers { get; set; }
 
 		public FootballManagerDbContext() { }
@@ -30,7 +29,6 @@ namespace FM.Data.Contexts
 		{
 			modelBuilder.Entity<Athlete>().HasData(new AthletesSeeder().Seed());
 			modelBuilder.Entity<Team>().HasData(new TeamSeeder().Seed());
-			modelBuilder.Entity<AthleteTeam>().HasData(new AthleteTeamSeeder().Seed());
 
 			modelBuilder.Entity<Athlete>()
 				.Property(b => b.CreatedAt)

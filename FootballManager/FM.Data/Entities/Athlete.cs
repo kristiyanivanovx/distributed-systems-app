@@ -21,6 +21,7 @@ public class Athlete
 	// Team, Athlete, Match, Club
 	[Key]
 	public int Id { get; set; }
+	public int TeamId { get; set; }
 	[Required]
 	[Column(TypeName = "varchar(30)")]
 	public required string FirstName { get; set; }
@@ -33,5 +34,7 @@ public class Athlete
 	public decimal MarketValue { get; set; }
 	public bool IsActive { get; set; } = true;
 	public DateTime CreatedAt { get; set; }
+	[ForeignKey(nameof(TeamId))]
+	public Team Team { get; set; }
 
 }

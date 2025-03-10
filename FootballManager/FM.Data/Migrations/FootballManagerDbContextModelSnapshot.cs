@@ -56,7 +56,12 @@ namespace FM.Data.Migrations
                     b.Property<int>("Position")
                         .HasColumnType("int");
 
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Athletes");
 
@@ -70,7 +75,8 @@ namespace FM.Data.Migrations
                             LastName = "Ronaldo",
                             MarketValue = 200000000m,
                             Nationality = "Portugal",
-                            Position = 7
+                            Position = 7,
+                            TeamId = -2
                         },
                         new
                         {
@@ -81,7 +87,8 @@ namespace FM.Data.Migrations
                             LastName = "Haaland",
                             MarketValue = 250000000m,
                             Nationality = "Norway",
-                            Position = 7
+                            Position = 7,
+                            TeamId = -4
                         },
                         new
                         {
@@ -92,7 +99,8 @@ namespace FM.Data.Migrations
                             LastName = "Mbappe",
                             MarketValue = 230000000m,
                             Nationality = "France",
-                            Position = 7
+                            Position = 7,
+                            TeamId = -4
                         },
                         new
                         {
@@ -103,7 +111,8 @@ namespace FM.Data.Migrations
                             LastName = "Junior",
                             MarketValue = 100000000m,
                             Nationality = "Brazil",
-                            Position = 8
+                            Position = 8,
+                            TeamId = -1
                         },
                         new
                         {
@@ -114,7 +123,8 @@ namespace FM.Data.Migrations
                             LastName = "Diaz",
                             MarketValue = 110000000m,
                             Nationality = "Columbia",
-                            Position = 8
+                            Position = 8,
+                            TeamId = -3
                         },
                         new
                         {
@@ -125,7 +135,8 @@ namespace FM.Data.Migrations
                             LastName = "Kvaratskhelia",
                             MarketValue = 200000000m,
                             Nationality = "Brazil",
-                            Position = 8
+                            Position = 8,
+                            TeamId = -4
                         },
                         new
                         {
@@ -136,7 +147,8 @@ namespace FM.Data.Migrations
                             LastName = "Yamal",
                             MarketValue = 180000000m,
                             Nationality = "Spain",
-                            Position = 9
+                            Position = 9,
+                            TeamId = -2
                         },
                         new
                         {
@@ -147,7 +159,8 @@ namespace FM.Data.Migrations
                             LastName = "Saka",
                             MarketValue = 150000000m,
                             Nationality = "England",
-                            Position = 9
+                            Position = 9,
+                            TeamId = -5
                         },
                         new
                         {
@@ -158,7 +171,8 @@ namespace FM.Data.Migrations
                             LastName = "Foden",
                             MarketValue = 160000000m,
                             Nationality = "England",
-                            Position = 9
+                            Position = 9,
+                            TeamId = -4
                         },
                         new
                         {
@@ -169,7 +183,8 @@ namespace FM.Data.Migrations
                             LastName = "Bellingham",
                             MarketValue = 1400000000m,
                             Nationality = "England",
-                            Position = 5
+                            Position = 5,
+                            TeamId = -5
                         },
                         new
                         {
@@ -180,7 +195,8 @@ namespace FM.Data.Migrations
                             LastName = "Wirtz",
                             MarketValue = 120000000m,
                             Nationality = "Germany",
-                            Position = 5
+                            Position = 5,
+                            TeamId = -5
                         },
                         new
                         {
@@ -191,7 +207,8 @@ namespace FM.Data.Migrations
                             LastName = "Musiala",
                             MarketValue = 100000000m,
                             Nationality = "Germany",
-                            Position = 5
+                            Position = 5,
+                            TeamId = -4
                         },
                         new
                         {
@@ -202,7 +219,8 @@ namespace FM.Data.Migrations
                             LastName = "Palmer",
                             MarketValue = 90000000m,
                             Nationality = "England",
-                            Position = 5
+                            Position = 5,
+                            TeamId = -3
                         },
                         new
                         {
@@ -213,7 +231,8 @@ namespace FM.Data.Migrations
                             LastName = "Valverde",
                             MarketValue = 800000000m,
                             Nationality = "Uruguay",
-                            Position = 4
+                            Position = 4,
+                            TeamId = -5
                         },
                         new
                         {
@@ -224,7 +243,8 @@ namespace FM.Data.Migrations
                             LastName = "Rice",
                             MarketValue = 100000000m,
                             Nationality = "England",
-                            Position = 4
+                            Position = 4,
+                            TeamId = -5
                         },
                         new
                         {
@@ -235,7 +255,8 @@ namespace FM.Data.Migrations
                             LastName = "Camavinga",
                             MarketValue = 140000000m,
                             Nationality = "France",
-                            Position = 4
+                            Position = 4,
+                            TeamId = -2
                         },
                         new
                         {
@@ -246,7 +267,8 @@ namespace FM.Data.Migrations
                             LastName = "Mac Allister",
                             MarketValue = 130000000m,
                             Nationality = "Argentina",
-                            Position = 4
+                            Position = 4,
+                            TeamId = -3
                         },
                         new
                         {
@@ -257,7 +279,8 @@ namespace FM.Data.Migrations
                             LastName = "Barella",
                             MarketValue = 110000000m,
                             Nationality = "Italy",
-                            Position = 4
+                            Position = 4,
+                            TeamId = -3
                         },
                         new
                         {
@@ -268,7 +291,8 @@ namespace FM.Data.Migrations
                             LastName = "Fernandez",
                             MarketValue = 100000000m,
                             Nationality = "Argentina",
-                            Position = 4
+                            Position = 4,
+                            TeamId = -2
                         },
                         new
                         {
@@ -279,7 +303,8 @@ namespace FM.Data.Migrations
                             LastName = "Szoboszlai",
                             MarketValue = 90000000m,
                             Nationality = "Hungary",
-                            Position = 4
+                            Position = 4,
+                            TeamId = -1
                         },
                         new
                         {
@@ -290,7 +315,8 @@ namespace FM.Data.Migrations
                             LastName = "Caicedo",
                             MarketValue = 80000000m,
                             Nationality = "Ecuador",
-                            Position = 6
+                            Position = 6,
+                            TeamId = -3
                         },
                         new
                         {
@@ -301,7 +327,8 @@ namespace FM.Data.Migrations
                             LastName = "Guimaraes",
                             MarketValue = 750000000m,
                             Nationality = "Brazil",
-                            Position = 6
+                            Position = 6,
+                            TeamId = -4
                         },
                         new
                         {
@@ -312,7 +339,8 @@ namespace FM.Data.Migrations
                             LastName = "Tchouaméni",
                             MarketValue = 890000000m,
                             Nationality = "France",
-                            Position = 6
+                            Position = 6,
+                            TeamId = -1
                         },
                         new
                         {
@@ -323,7 +351,8 @@ namespace FM.Data.Migrations
                             LastName = "Neves",
                             MarketValue = 132000000m,
                             Nationality = "Portugal",
-                            Position = 6
+                            Position = 6,
+                            TeamId = -3
                         },
                         new
                         {
@@ -334,7 +363,8 @@ namespace FM.Data.Migrations
                             LastName = "Zubimendi",
                             MarketValue = 120000000m,
                             Nationality = "Spain",
-                            Position = 6
+                            Position = 6,
+                            TeamId = -1
                         },
                         new
                         {
@@ -345,7 +375,8 @@ namespace FM.Data.Migrations
                             LastName = "Saliba",
                             MarketValue = 120000000m,
                             Nationality = "France",
-                            Position = 3
+                            Position = 3,
+                            TeamId = -2
                         },
                         new
                         {
@@ -356,7 +387,8 @@ namespace FM.Data.Migrations
                             LastName = "Gvardiol",
                             MarketValue = 120000000m,
                             Nationality = "Croatia",
-                            Position = 2
+                            Position = 2,
+                            TeamId = -4
                         },
                         new
                         {
@@ -367,7 +399,8 @@ namespace FM.Data.Migrations
                             LastName = "Magalhaes",
                             MarketValue = 160000000m,
                             Nationality = "Brazil",
-                            Position = 3
+                            Position = 3,
+                            TeamId = -2
                         },
                         new
                         {
@@ -378,7 +411,8 @@ namespace FM.Data.Migrations
                             LastName = "Bastoni",
                             MarketValue = 136000000m,
                             Nationality = "Italy",
-                            Position = 3
+                            Position = 3,
+                            TeamId = -2
                         },
                         new
                         {
@@ -389,7 +423,8 @@ namespace FM.Data.Migrations
                             LastName = "Alexander-Arnold",
                             MarketValue = 74000000m,
                             Nationality = "England",
-                            Position = 1
+                            Position = 1,
+                            TeamId = -5
                         },
                         new
                         {
@@ -400,7 +435,8 @@ namespace FM.Data.Migrations
                             LastName = "Dias",
                             MarketValue = 112000000m,
                             Nationality = "Portugal",
-                            Position = 3
+                            Position = 3,
+                            TeamId = -3
                         },
                         new
                         {
@@ -411,7 +447,8 @@ namespace FM.Data.Migrations
                             LastName = "Cubarsi",
                             MarketValue = 102000000m,
                             Nationality = "Spain",
-                            Position = 3
+                            Position = 3,
+                            TeamId = -1
                         },
                         new
                         {
@@ -422,7 +459,8 @@ namespace FM.Data.Migrations
                             LastName = "Romero",
                             MarketValue = 102000000m,
                             Nationality = "Argentina",
-                            Position = 3
+                            Position = 3,
+                            TeamId = -5
                         },
                         new
                         {
@@ -433,7 +471,8 @@ namespace FM.Data.Migrations
                             LastName = "Kounde",
                             MarketValue = 130000000m,
                             Nationality = "France",
-                            Position = 1
+                            Position = 1,
+                            TeamId = -4
                         },
                         new
                         {
@@ -444,7 +483,8 @@ namespace FM.Data.Migrations
                             LastName = "Hakimi",
                             MarketValue = 82000000m,
                             Nationality = "Morroco",
-                            Position = 1
+                            Position = 1,
+                            TeamId = -4
                         },
                         new
                         {
@@ -455,7 +495,8 @@ namespace FM.Data.Migrations
                             LastName = "Dimarco",
                             MarketValue = 67000000m,
                             Nationality = "Italy",
-                            Position = 2
+                            Position = 2,
+                            TeamId = -2
                         },
                         new
                         {
@@ -466,7 +507,8 @@ namespace FM.Data.Migrations
                             LastName = "Mendes",
                             MarketValue = 102000000m,
                             Nationality = "Portugal",
-                            Position = 2
+                            Position = 2,
+                            TeamId = -5
                         },
                         new
                         {
@@ -477,7 +519,8 @@ namespace FM.Data.Migrations
                             LastName = "Balde",
                             MarketValue = 98000000m,
                             Nationality = "Spain",
-                            Position = 2
+                            Position = 2,
+                            TeamId = -2
                         },
                         new
                         {
@@ -488,7 +531,8 @@ namespace FM.Data.Migrations
                             LastName = "Mamardashvilli",
                             MarketValue = 50000000m,
                             Nationality = "Georgia",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -4
                         },
                         new
                         {
@@ -499,7 +543,8 @@ namespace FM.Data.Migrations
                             LastName = "Costa",
                             MarketValue = 150000000m,
                             Nationality = "Portugal",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -4
                         },
                         new
                         {
@@ -510,7 +555,8 @@ namespace FM.Data.Migrations
                             LastName = "Raya",
                             MarketValue = 102000000m,
                             Nationality = "Spain",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -2
                         },
                         new
                         {
@@ -521,7 +567,8 @@ namespace FM.Data.Migrations
                             LastName = "Kobel",
                             MarketValue = 102000000m,
                             Nationality = "Switzerland",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -1
                         },
                         new
                         {
@@ -532,7 +579,8 @@ namespace FM.Data.Migrations
                             LastName = "Donnarumma",
                             MarketValue = 130000000m,
                             Nationality = "Italy",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -3
                         },
                         new
                         {
@@ -543,7 +591,8 @@ namespace FM.Data.Migrations
                             LastName = "Vicario",
                             MarketValue = 99000000m,
                             Nationality = "Italy",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -4
                         },
                         new
                         {
@@ -554,7 +603,8 @@ namespace FM.Data.Migrations
                             LastName = "Onana",
                             MarketValue = 104000000m,
                             Nationality = "Cameroon",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -3
                         },
                         new
                         {
@@ -565,7 +615,8 @@ namespace FM.Data.Migrations
                             LastName = "Maignan",
                             MarketValue = 92000000m,
                             Nationality = "France",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -3
                         },
                         new
                         {
@@ -576,7 +627,8 @@ namespace FM.Data.Migrations
                             LastName = "Chevalier",
                             MarketValue = 30000000m,
                             Nationality = "France",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -1
                         },
                         new
                         {
@@ -587,7 +639,8 @@ namespace FM.Data.Migrations
                             LastName = "Simon",
                             MarketValue = 540000000m,
                             Nationality = "Spain",
-                            Position = 0
+                            Position = 0,
+                            TeamId = -5
                         },
                         new
                         {
@@ -598,320 +651,8 @@ namespace FM.Data.Migrations
                             LastName = "Trubin",
                             MarketValue = 760000000m,
                             Nationality = "Ukraine",
-                            Position = 0
-                        });
-                });
-
-            modelBuilder.Entity("FM.Data.Entities.AthleteTeam", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AthleteId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeamId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AthleteId");
-
-                    b.HasIndex("TeamId");
-
-                    b.ToTable("AthleteTeam");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = -1,
-                            AthleteId = -1,
-                            TeamId = -2
-                        },
-                        new
-                        {
-                            Id = -2,
-                            AthleteId = -2,
-                            TeamId = -5
-                        },
-                        new
-                        {
-                            Id = -3,
-                            AthleteId = -3,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -4,
-                            AthleteId = -4,
-                            TeamId = -1
-                        },
-                        new
-                        {
-                            Id = -5,
-                            AthleteId = -5,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -6,
-                            AthleteId = -6,
+                            Position = 0,
                             TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -7,
-                            AthleteId = -7,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -8,
-                            AthleteId = -8,
-                            TeamId = -5
-                        },
-                        new
-                        {
-                            Id = -9,
-                            AthleteId = -9,
-                            TeamId = -1
-                        },
-                        new
-                        {
-                            Id = -10,
-                            AthleteId = -10,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -11,
-                            AthleteId = -11,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -12,
-                            AthleteId = -12,
-                            TeamId = -5
-                        },
-                        new
-                        {
-                            Id = -13,
-                            AthleteId = -13,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -14,
-                            AthleteId = -14,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -15,
-                            AthleteId = -15,
-                            TeamId = -2
-                        },
-                        new
-                        {
-                            Id = -16,
-                            AthleteId = -16,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -17,
-                            AthleteId = -17,
-                            TeamId = -1
-                        },
-                        new
-                        {
-                            Id = -18,
-                            AthleteId = -18,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -19,
-                            AthleteId = -19,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -20,
-                            AthleteId = -20,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -21,
-                            AthleteId = -21,
-                            TeamId = -5
-                        },
-                        new
-                        {
-                            Id = -22,
-                            AthleteId = -22,
-                            TeamId = -5
-                        },
-                        new
-                        {
-                            Id = -23,
-                            AthleteId = -23,
-                            TeamId = -2
-                        },
-                        new
-                        {
-                            Id = -24,
-                            AthleteId = -24,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -25,
-                            AthleteId = -25,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -26,
-                            AthleteId = -26,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -27,
-                            AthleteId = -27,
-                            TeamId = -5
-                        },
-                        new
-                        {
-                            Id = -28,
-                            AthleteId = -28,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -29,
-                            AthleteId = -29,
-                            TeamId = -2
-                        },
-                        new
-                        {
-                            Id = -30,
-                            AthleteId = -30,
-                            TeamId = -5
-                        },
-                        new
-                        {
-                            Id = -31,
-                            AthleteId = -31,
-                            TeamId = -2
-                        },
-                        new
-                        {
-                            Id = -32,
-                            AthleteId = -32,
-                            TeamId = -1
-                        },
-                        new
-                        {
-                            Id = -33,
-                            AthleteId = -33,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -34,
-                            AthleteId = -34,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -35,
-                            AthleteId = -35,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -36,
-                            AthleteId = -36,
-                            TeamId = -1
-                        },
-                        new
-                        {
-                            Id = -37,
-                            AthleteId = -37,
-                            TeamId = -1
-                        },
-                        new
-                        {
-                            Id = -38,
-                            AthleteId = -38,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -39,
-                            AthleteId = -39,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -40,
-                            AthleteId = -40,
-                            TeamId = -2
-                        },
-                        new
-                        {
-                            Id = -41,
-                            AthleteId = -41,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -42,
-                            AthleteId = -42,
-                            TeamId = -2
-                        },
-                        new
-                        {
-                            Id = -43,
-                            AthleteId = -43,
-                            TeamId = -2
-                        },
-                        new
-                        {
-                            Id = -44,
-                            AthleteId = -44,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -45,
-                            AthleteId = -45,
-                            TeamId = -3
-                        },
-                        new
-                        {
-                            Id = -46,
-                            AthleteId = -46,
-                            TeamId = -1
-                        },
-                        new
-                        {
-                            Id = -47,
-                            AthleteId = -47,
-                            TeamId = -4
-                        },
-                        new
-                        {
-                            Id = -48,
-                            AthleteId = -48,
-                            TeamId = -4
                         });
                 });
 
@@ -1010,7 +751,10 @@ namespace FM.Data.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int>("NewTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OldTeamId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TransferValue")
@@ -1020,7 +764,9 @@ namespace FM.Data.Migrations
 
                     b.HasIndex("AthleteId");
 
-                    b.HasIndex("TeamId");
+                    b.HasIndex("NewTeamId");
+
+                    b.HasIndex("OldTeamId");
 
                     b.ToTable("Transfers");
                 });
@@ -1052,21 +798,13 @@ namespace FM.Data.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("FM.Data.Entities.AthleteTeam", b =>
+            modelBuilder.Entity("FM.Data.Entities.Athlete", b =>
                 {
-                    b.HasOne("FM.Data.Entities.Athlete", "Athlete")
-                        .WithMany()
-                        .HasForeignKey("AthleteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("FM.Data.Entities.Team", "Team")
                         .WithMany()
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Athlete");
 
                     b.Navigation("Team");
                 });
@@ -1079,15 +817,23 @@ namespace FM.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FM.Data.Entities.Team", "Team")
+                    b.HasOne("FM.Data.Entities.Team", "NewTeam")
                         .WithMany()
-                        .HasForeignKey("TeamId")
+                        .HasForeignKey("NewTeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FM.Data.Entities.Team", "OldTeam")
+                        .WithMany()
+                        .HasForeignKey("OldTeamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Athlete");
 
-                    b.Navigation("Team");
+                    b.Navigation("NewTeam");
+
+                    b.Navigation("OldTeam");
                 });
 #pragma warning restore 612, 618
         }
