@@ -44,7 +44,9 @@ namespace FM.Data.Contexts
 				.Property(b => b.CreatedAt)
 				.HasDefaultValueSql("getutcdate()");
 
+			modelBuilder.Entity<User>()
+			  .HasIndex(u => u.Username)
+			  .IsUnique();
 		}
-
 	}
 }

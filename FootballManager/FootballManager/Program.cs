@@ -53,7 +53,11 @@ namespace FM.Web
 
 			builder.Services.AddScoped<IAthleteService, AthleteService>();
 			builder.Services.AddAuthorization();
-			builder.Services.AddSingleton<IJWTAuthenticationsManager>(new JWTAuthenticationsManager(tokenTokey));
+			builder.Services.AddScoped<IJWTAuthenticationsManager, JWTAuthenticationsManager>(provider =>
+			{
+				var context = provider.GetRequiredService<FootballManagerDbContext>();
+				return new JWTAuthenticationsManager(context, tokenTokey);
+			});
 
 			var app = builder.Build();
 
