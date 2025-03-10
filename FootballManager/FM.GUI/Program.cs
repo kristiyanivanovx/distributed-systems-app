@@ -9,6 +9,8 @@ using FM.Services.Messaging.Requests;
 using System.Text;
 using FM.Services.Messaging;
 using Azure.Core;
+using System.Web;
+using FM.Services.Messaging.Authentication;
 
 namespace FM.GUI
 {
@@ -16,6 +18,7 @@ namespace FM.GUI
 	{
 		static HttpClient client = new HttpClient();
 		const string baseUrl = "https://localhost:7073/api/";
+		static string token = null;
 		static async Task Main(string[] args)
 		{
 			
@@ -37,12 +40,12 @@ namespace FM.GUI
 				{
 					case "1":
 					{
-						HandleRegister();
+						await HandleRegister();
 						break;
 					}
 					case "2":
 					{
-						HandleRegister();
+						await HandleLogin();
 						break;
 					}
 					case "3":
@@ -60,13 +63,61 @@ namespace FM.GUI
 			}
 		}
 
-		static void HandleRegister()
+		static async Task HandleRegister()
 		{
+			var username = AnsiConsole.Ask<string>("Enter username: ");
+			var password = AnsiConsole.Prompt(
+				new TextPrompt<string>("Enter password: ")
+					.Secret());
 
+			var query = HttpUtility.ParseQueryString(string.Empty);
+			query["username"] = username;
+			query["password"] = password;
+			string queryString = query.ToString();
+
+
+			var response = await client.PostAsync(baseUrl + $"auth/register?{queryString}", null);
+
+			string responseBody = await response.Content.ReadAsStringAsync();
+
+			AuthenticationResponse responseDeserialsed = JsonConvert.DeserializeObject<AuthenticationResponse>(responseBody);
+
+			if(responseDeserialsed.Error is not null) 
+			{
+				AnsiConsole.MarkupLine($"[red]{responseDeserialsed.Error}[/]");
+				return;
+			}
+
+			AnsiConsole.MarkupLine($"[green]User registered successfully![/]");
+			token = responseDeserialsed.Token;
 		}
-		static void HandleLogin()
+		static async Task HandleLogin()
 		{
+			var username = AnsiConsole.Ask<string>("Enter username: ");
+			var password = AnsiConsole.Prompt(
+				new TextPrompt<string>("Enter password: ")
+					.Secret());
 
+			var query = HttpUtility.ParseQueryString(string.Empty);
+			query["username"] = username;
+			query["password"] = password;
+			string queryString = query.ToString();
+
+
+			var response = await client.PutAsync(baseUrl + $"auth?{queryString}", null);
+
+			string responseBody = await response.Content.ReadAsStringAsync();
+
+			AuthenticationResponse responseDeserialsed = JsonConvert.DeserializeObject<AuthenticationResponse>(responseBody);
+
+			if (responseDeserialsed.Error is not null)
+			{
+				AnsiConsole.MarkupLine($"[red]{responseDeserialsed.Error}[/]");
+				return;
+			}
+
+			AnsiConsole.MarkupLine($"[green]User logged in successfully![/]");
+			token = responseDeserialsed.Token;
 		}
 		static async Task HandleAthletes()
 		{
@@ -280,7 +331,7 @@ namespace FM.GUI
 						string responseBody = await response.Content.ReadAsStringAsync();
 
 						DeleteAthleteResponse responseDeserialsed = JsonConvert.DeserializeObject<DeleteAthleteResponse>(responseBody);
-
+						
 						switch (responseDeserialsed.StatusCode)
 						{
 							case BusinessStatusCodeEnum.Success:
