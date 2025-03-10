@@ -1,4 +1,5 @@
 ﻿using FM.Data.Contexts;
+using FM.Data.Entities;
 using FM.Services.Interfaces;
 using FM.Services.Messaging.Requests;
 using FM.Services.Messaging.Responses;
@@ -25,8 +26,12 @@ namespace FM.Services.Implementations
 		{
 			GetAllAthletesResponse response = new() { Athletes = new() };
 
-			var athletes = await _context.Athletes.Where(x => x.IsActive).ToListAsync();
-			if (athletes is null)
+			var athletes = await _context.Athletes
+				.Where(x => x.IsActive)
+				.Include(a => a.Team)
+				.ToListAsync();
+
+			if (athletes is null || !athletes.Any())
 			{
 				return response;
 			}
@@ -39,7 +44,9 @@ namespace FM.Services.Implementations
 					FirstName = athlete.FirstName,
 					LastName = athlete.LastName,
 					Nationality = athlete.Nationality,
-					//Team = athlete.Team
+					MarketValue = athlete.MarketValue,
+					TeamName = athlete.Team?.Name ?? "No team",
+					TeamId = athlete.TeamId,
 				});
 			}
 
@@ -53,6 +60,7 @@ namespace FM.Services.Implementations
 
 			var athlete = await _context.Athletes
 				.Where(x => x.IsActive)
+				.Include(a => a.Team)
 				.SingleOrDefaultAsync(x => x.FirstName == request.Name || x.LastName == request.Name);
 
 			if (athlete is null)
@@ -67,7 +75,9 @@ namespace FM.Services.Implementations
 				FirstName = athlete.FirstName,
 				LastName = athlete.LastName,
 				Nationality = athlete.Nationality,
-				//Team = athlete.Team
+				MarketValue = athlete.MarketValue,
+				TeamName = athlete.Team?.Name ?? "No team",
+				TeamId = athlete.TeamId,
 			};
 
 			response.StatusCode = Messaging.BusinessStatusCodeEnum.Success;
@@ -81,14 +91,16 @@ namespace FM.Services.Implementations
 
 			try
 			{
-				await _context.Athletes.AddAsync(new()
+				var athlete = new Athlete()
 				{
 					FirstName = request.Athlete.FirstName,
 					LastName = request.Athlete.LastName,
 					Nationality = request.Athlete.Nationality,
-					//Team = athlete.Team
-				});
+					MarketValue = request.Athlete.MarketValue,
+					TeamId = request.Athlete.TeamId
+				};
 
+				await _context.Athletes.AddAsync(athlete);
 				await _context.SaveChangesAsync();
 
 				response.StatusCode = Messaging.BusinessStatusCodeEnum.Success;
@@ -108,7 +120,9 @@ namespace FM.Services.Implementations
 		{
 			UpdateAthleteResponse response = new();
 
-			var athlete = await _context.Athletes.SingleOrDefaultAsync(x => x.Id == id);
+			var athlete = await _context.Athletes
+				.Include(a => a.Team)
+				.SingleOrDefaultAsync(x => x.Id == id);
 
 			if (athlete is null)
 			{
@@ -121,9 +135,14 @@ namespace FM.Services.Implementations
 				athlete.FirstName = request.Athlete?.FirstName ?? athlete.FirstName;
 				athlete.LastName = request.Athlete?.LastName ?? athlete.LastName;
 				athlete.Nationality = request.Athlete?.Nationality ?? athlete.Nationality;
+				athlete.MarketValue = request.Athlete?.MarketValue ?? athlete.MarketValue;
+
+				if (request.Athlete?.TeamId.HasValue == true)
+				{
+					athlete.TeamId = request.Athlete.TeamId.Value;
+				}
 
 				_context.Athletes.Update(athlete);
-
 				await _context.SaveChangesAsync();
 
 				response.StatusCode = Messaging.BusinessStatusCodeEnum.Success;

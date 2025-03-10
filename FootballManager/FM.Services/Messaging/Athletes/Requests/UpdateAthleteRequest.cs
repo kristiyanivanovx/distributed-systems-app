@@ -8,7 +8,6 @@ namespace FM.Services.Messaging.Requests
 {
     public class UpdateAthleteRequest : ServiceRequestBase
     {
-
         public AthleteUpdateModel Athlete { get; set; }
 
         public UpdateAthleteRequest(AthleteUpdateModel athlete)

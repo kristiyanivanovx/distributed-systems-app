@@ -10,6 +10,10 @@
 
 		public string Nationality { get; set; }
 
-		// public AthletePosition Position { get; set; }
+		public decimal MarketValue { get; set; }
+
+		public int? TeamId { get; set; }
+
+		public string? TeamName { get; set; }
 	}
 }
