@@ -9,9 +9,9 @@
 			StatusCode = BusinessStatusCodeEnum.None;
 		}
 
-    public ServiceResponseBase(BusinessStatusCodeEnum statusCode)
-    {
-        StatusCode = statusCode;
-    }
-  }
+		public ServiceResponseBase(BusinessStatusCodeEnum statusCode)
+		{
+			StatusCode = statusCode;
+		}
+	}
 }
