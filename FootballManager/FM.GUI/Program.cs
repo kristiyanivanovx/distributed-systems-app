@@ -1,10 +1,325 @@
-﻿namespace FM.GUI
+﻿using Newtonsoft.Json;
+using FM.Services;
+using FM.Services.Messaging.Responses;
+using FM.Data.Entities;
+using Spectre.Console;
+using Spectre.Console.Cli;
+using static FM.Data.Entities.Athlete;
+using FM.Services.Messaging.Requests;
+using System.Text;
+using FM.Services.Messaging;
+using Azure.Core;
+
+namespace FM.GUI
 {
-	internal class Program
+	public class Program
 	{
-		static void Main(string[] args)
+		static HttpClient client = new HttpClient();
+		const string baseUrl = "https://localhost:7073/api/";
+		static async Task Main(string[] args)
 		{
-			Console.WriteLine("Hello, World!");
+			
+
+			bool exit = false;
+			while(!exit)
+			{
+				AnsiConsole.MarkupLine("Welcome to [lime]Football Manager[/]! Select an option: ");
+				AnsiConsole.MarkupLine("1. Register");
+				AnsiConsole.MarkupLine("2. Login");
+				AnsiConsole.MarkupLine("3. Athletes");
+				AnsiConsole.MarkupLine("4. Teams");
+				AnsiConsole.MarkupLine("5. Transfers");
+				AnsiConsole.MarkupLine("6. Exit");
+
+				string userInput = AnsiConsole.Ask<string>("Choose option: ");
+
+				switch(userInput) 
+				{
+					case "1":
+					{
+						HandleRegister();
+						break;
+					}
+					case "2":
+					{
+						HandleRegister();
+						break;
+					}
+					case "3":
+					{
+						await HandleAthletes();
+						break;
+					}
+
+					case "6":
+					{
+						exit = true;
+						break;
+					}
+				}
+			}
+		}
+
+		static void HandleRegister()
+		{
+
+		}
+		static void HandleLogin()
+		{
+
+		}
+		static async Task HandleAthletes()
+		{
+			AnsiConsole.MarkupLine("Athlete menu. Select an option: ");
+			AnsiConsole.MarkupLine("1. Get all athletes");
+			AnsiConsole.MarkupLine("2. Get athlete by name");
+			AnsiConsole.MarkupLine("3. Create athlete");
+			AnsiConsole.MarkupLine("4. Update athlete");
+			AnsiConsole.MarkupLine("5. Delete athlete");
+			AnsiConsole.MarkupLine("6. Back");
+
+			string userInput = AnsiConsole.Ask<string>("Choose option: ");
+
+			switch (userInput)
+			{
+				case "1":
+				{
+					var response = await client.GetAsync(baseUrl + "athlete");
+					
+					string responseBody = await response.Content.ReadAsStringAsync();
+
+					GetAllAthletesResponse responseDeserialsed = JsonConvert.DeserializeObject<GetAllAthletesResponse>(responseBody);
+
+
+					Table table = new Table();
+					table.Border = TableBorder.Square;
+					table.ShowRowSeparators = true;
+
+					table.AddColumns("[bold yellow]#[/]", "[bold yellow]First Name[/]", "[bold yellow]Last Name[/]", "[bold yellow]Nationality[/]", "[bold yellow]Market Value[/]");
+					for(int i = 0; i < responseDeserialsed.Athletes.Count; i++)
+					{
+						AthleteViewModel athlete = responseDeserialsed.Athletes[i];
+						table.AddRow(
+							new Markup((i+1).ToString()), 
+							new Markup(athlete.FirstName), 
+							new Markup(athlete.LastName), 
+							new Markup(athlete.Nationality),
+							new Markup("0"));
+					}
+					AnsiConsole.Write(table);
+					break;
+				}
+				case "2":
+				{
+					AnsiConsole.Markup("Athlete name: ");
+					string athleteName = Console.ReadLine();
+
+					var response = await client.GetAsync(baseUrl + $"athlete/{athleteName}");
+
+					string responseBody = await response.Content.ReadAsStringAsync();
+
+					GetByNameResponse responseDeserialsed = JsonConvert.DeserializeObject<GetByNameResponse>(responseBody);
+
+					Table table = new Table();
+					table.Border = TableBorder.Square;
+					table.ShowRowSeparators = true;
+
+					table.AddColumns( 
+						"[bold yellow]First Name[/]", 
+						"[bold yellow]Last Name[/]", 
+						"[bold yellow]Nationality[/]", 
+						"[bold yellow]Market Value[/]"
+					);
+					AthleteViewModel athlete = responseDeserialsed.Athlete;
+					table.AddRow(
+						new Markup(athlete.FirstName),
+						new Markup(athlete.LastName),
+						new Markup(athlete.Nationality),
+						new Markup("0"));
+
+					AnsiConsole.Write(table);
+					break;
+				}
+				case "3":
+				{
+						var athleteFirstName = AnsiConsole.Ask<string>("Athlete first name: ");
+						var athleteLastName = AnsiConsole.Ask<string>("Athlete last name: ");
+						var athleteNationality = AnsiConsole.Ask<string>("Athlete nationality: ");
+						var athleteMarketValue = AnsiConsole.Ask<decimal>("Athlete market value: ");
+						var athletePosition = AnsiConsole.Prompt(
+							new TextPrompt<string>("Athlete postion: ")
+								.AddChoices(["GK", "LB", "RB", "CB", "DM", "CM", "AM", "LW", "RW", "FW"]));
+
+						AthletePosition position = athletePosition switch
+						{
+							"GK" => AthletePosition.Goalkeeper,
+							"LB" => AthletePosition.LeftFullback,
+							"RB" => AthletePosition.RightFullback,
+							"CB" => AthletePosition.Centerback,
+							"DM" => AthletePosition.DefensiveMidfield,
+							"CM" => AthletePosition.CenterMidfield,
+							"AM" => AthletePosition.AttackingMidfield,
+							"LW" => AthletePosition.LeftWing,
+							"RW" => AthletePosition.RightWing,
+							"FW" => AthletePosition.Forward,
+							_ => throw new ArgumentException("Unknown type of a athlete postion", nameof(athletePosition))
+						};
+
+						AthleteCreateModel athlete = new AthleteCreateModel()
+						{
+							FirstName = athleteFirstName,
+							LastName = athleteLastName,
+							Nationality = athleteNationality,
+						};
+
+						var httpContent = new StringContent(JsonConvert.SerializeObject(athlete), Encoding.UTF8, "application/json");
+
+						var response = await client.PostAsync(baseUrl + "athlete", httpContent);
+
+						string responseBody = await response.Content.ReadAsStringAsync();
+
+						CreateAthleteResponse responseDeserialsed = JsonConvert.DeserializeObject<CreateAthleteResponse>(responseBody);
+
+						switch (responseDeserialsed.StatusCode)
+						{
+							case BusinessStatusCodeEnum.Success:
+								{
+									AnsiConsole.MarkupLine("[green]Athlete created successfully![/]");
+									break;
+								}
+							case BusinessStatusCodeEnum.InternalServerError:
+								{
+									AnsiConsole.MarkupLine($"[red]Internal server error. Athlete creation failed.[/]");
+									break;
+								}
+							default:
+								{
+									AnsiConsole.MarkupLine($"[yellow]Unexpected response from server. Athlete creation may have failed.[/]");
+									break;
+								}
+						}
+
+
+						break;
+				}
+				case "4":
+					{
+						var athleteId = AnsiConsole.Ask<string>("Athlete id: ");
+
+						var athleteFirstName = AnsiConsole.Ask<string>("Athlete first name: ");
+						var athleteLastName = AnsiConsole.Ask<string>("Athlete last name: ");
+						var athleteNationality = AnsiConsole.Ask<string>("Athlete nationality: ");
+						var athleteMarketValue = AnsiConsole.Ask<decimal>("Athlete market value: ");
+						var athletePosition = AnsiConsole.Prompt(
+							new TextPrompt<string>("Athlete postion: ")
+								.AddChoices(["GK", "LB", "RB", "CB", "DM", "CM", "AM", "LW", "RW", "FW"]));
+
+						AthletePosition position = athletePosition switch
+						{
+							"GK" => AthletePosition.Goalkeeper,
+							"LB" => AthletePosition.LeftFullback,
+							"RB" => AthletePosition.RightFullback,
+							"CB" => AthletePosition.Centerback,
+							"DM" => AthletePosition.DefensiveMidfield,
+							"CM" => AthletePosition.CenterMidfield,
+							"AM" => AthletePosition.AttackingMidfield,
+							"LW" => AthletePosition.LeftWing,
+							"RW" => AthletePosition.RightWing,
+							"FW" => AthletePosition.Forward,
+							_ => throw new ArgumentException("Unknown type of a athlete postion", nameof(athletePosition))
+						};
+
+						UpdateAthleteRequest request = new UpdateAthleteRequest(new AthleteUpdateModel()
+						{
+							FirstName = athleteFirstName,
+							LastName = athleteLastName,
+							Nationality = athleteNationality,
+						});
+
+						var httpContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
+
+						var response = await client.PutAsync(baseUrl + $"athlete/{athleteId}", httpContent);
+
+						string responseBody = await response.Content.ReadAsStringAsync();
+
+						UpdateAthleteResponse responseDeserialsed = JsonConvert.DeserializeObject<UpdateAthleteResponse>(responseBody);
+
+						switch(responseDeserialsed.StatusCode)
+						{
+							case BusinessStatusCodeEnum.Success:
+							{
+								AnsiConsole.MarkupLine("[green]Athlete updated successfully![/]");
+								break;
+							}
+							case BusinessStatusCodeEnum.MissingObject:
+							{
+								AnsiConsole.MarkupLine($"[red]Athlete not found with id of {athleteId}. Athlete update failed.[/]");
+								break;
+							}
+							case BusinessStatusCodeEnum.InternalServerError:
+							{
+								AnsiConsole.MarkupLine($"[red]Internal server error. Athlete update failed.[/]");
+								break;
+							}
+							default:
+							{
+								AnsiConsole.MarkupLine($"[yellow]Unexpected response from server. Athlete update may have failed.[/]");
+								break;
+							}
+						}
+
+
+						break;
+					}
+				case "5":
+					{
+						var athleteId = AnsiConsole.Ask<string>("Athlete id: ");
+
+						var response = await client.DeleteAsync(baseUrl + $"athlete/{athleteId}");
+
+						string responseBody = await response.Content.ReadAsStringAsync();
+
+						DeleteAthleteResponse responseDeserialsed = JsonConvert.DeserializeObject<DeleteAthleteResponse>(responseBody);
+
+						switch (responseDeserialsed.StatusCode)
+						{
+							case BusinessStatusCodeEnum.Success:
+								{
+									AnsiConsole.MarkupLine("[green]Athlete deletion successfully![/]");
+									break;
+								}
+							case BusinessStatusCodeEnum.MissingObject:
+								{
+									AnsiConsole.MarkupLine($"[red]Athlete not found with id of {athleteId}. Athlete deletion failed.[/]");
+									break;
+								}
+							case BusinessStatusCodeEnum.InternalServerError:
+								{
+									AnsiConsole.MarkupLine($"[red]Internal server error. Athlete deletion failed.[/]");
+									break;
+								}
+							default:
+								{
+									AnsiConsole.MarkupLine($"[yellow]Unexpected response from server. Athlete deletion may have failed.[/]");
+									break;
+								}
+						}
+
+						break;
+					}
+				case "6": 
+					{ 
+						break; 
+					}
+			}
+		}
+		static void HandleTeams()
+		{
+
+		}
+		static void HandleTransfers()
+		{
+
 		}
 	}
 }
