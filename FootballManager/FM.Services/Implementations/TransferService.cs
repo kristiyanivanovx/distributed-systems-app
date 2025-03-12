@@ -25,6 +25,7 @@ namespace FM.Services.Implementations
 			_context = context;
 		}
 
+		/// <inheritdoc/>
 		public async Task<GetAllTransfersResponse> GetAllTransfersAsync(GetAllTransfersRequest request)
 		{
 			GetAllTransfersResponse response = new() { Transfers = new() };
@@ -53,6 +54,7 @@ namespace FM.Services.Implementations
 			return response;
 		}
 
+		/// <inheritdoc/>
 		public async Task<GetByIdResponse> GetByIdAsync(GetByIdRequest request)
 		{
 			GetByIdResponse response = new();
@@ -82,7 +84,8 @@ namespace FM.Services.Implementations
 			return response;
 		}
 
-		public async Task<CreateTransferResponse> SaveAsync(CreateTransferRequest request)
+		/// <inheritdoc/>
+		public async Task<CreateTransferResponse> CreateTransferAsync(CreateTransferRequest request)
 		{
 			CreateTransferResponse response = new();
 
@@ -110,6 +113,7 @@ namespace FM.Services.Implementations
 			return response;
 		}
 
+		/// <inheritdoc/>
 		public async Task<DeleteTransferResponse> SoftDeleteTransferAsync(DeleteTransferRequest request)
 		{
 			DeleteTransferResponse response = new();

@@ -25,7 +25,7 @@ namespace FM.Services.Interfaces
 		/// </summary>
 		/// <param name="request">Create transfer request object.</param>
 		/// <returns>Return 200 ok.</returns>
-		Task<CreateTransferResponse> SaveAsync(CreateTransferRequest request);
+		Task<CreateTransferResponse> CreateTransferAsync(CreateTransferRequest request);
 
 		/// <summary>
 		/// Delete an transfer.

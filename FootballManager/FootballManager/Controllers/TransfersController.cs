@@ -10,15 +10,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FM.Web.Controllers
 {
+	/// <summary>
+	/// Transfers controller.
+	/// </summary>
+	//[Authorize]
+	[Produces("application/json")]
 	[Route("api/[controller]")]
 	[ApiController]
-	public class TransferController : ControllerBase
+	public class TransfersController(ITransferService transferService) : ControllerBase
 	{
-		private ITransferService _transferService;
-		public TransferController(ITransferService transferService)
-		{
-			_transferService = transferService;
-		}
+		private ITransferService _transferService = transferService;
 
 		/// <summary>
 		/// Get transfer list.
@@ -55,7 +56,7 @@ namespace FM.Web.Controllers
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
 		public async Task<IActionResult> CreateTransfer([FromBody] TransferCreateModel model)
-			=> Ok(await _transferService.SaveAsync(new(model)));
+			=> Ok(await _transferService.CreateTransferAsync(new(model)));
 
 		/// <summary>
 		/// Soft delete an transfer.

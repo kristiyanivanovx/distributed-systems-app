@@ -8,7 +8,7 @@ namespace FM.Services.Messaging.Authentication
 {
 	public class JWTResponseOrError : ServiceResponseBase
 	{
-		public ServiceResponseGenericError? Error { get; set; }
+		public ServiceResponseOptionalGenericError? Error { get; set; }
 
 		public string? Token { get; set; }
 
@@ -22,7 +22,7 @@ namespace FM.Services.Messaging.Authentication
 
 		public JWTResponseOrError(BusinessStatusCodeEnum errorCode, string errorMessage)
 		{
-			Error = new ServiceResponseGenericError(errorCode) { Message = errorMessage };
+			Error = new ServiceResponseOptionalGenericError(errorCode) { Message = errorMessage };
 		}
 	}
 }

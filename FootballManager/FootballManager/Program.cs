@@ -53,6 +53,8 @@ namespace FM.Web
 
 			builder.Services.AddScoped<IAthleteService, AthleteService>();
 			builder.Services.AddScoped<ITransferService, TransferService>();
+			builder.Services.AddScoped<ITeamService, TeamService>();
+
 			builder.Services.AddAuthorization();
 			builder.Services.AddScoped<IJWTAuthenticationsManager, JWTAuthenticationsManager>(provider =>
 			{

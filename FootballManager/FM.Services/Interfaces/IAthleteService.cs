@@ -25,7 +25,7 @@ namespace FM.Services.Interfaces
 		/// </summary>
 		/// <param name="request">Create athlete request object.</param>
 		/// <returns>Return 200 ok.</returns>
-		Task<CreateAthleteResponse> SaveAsync(CreateAthleteRequest request);
+		Task<CreateAthleteResponse> CreateAthleteAsync(CreateAthleteRequest request);
 
 		/// <summary>
 		/// Update an athlete.

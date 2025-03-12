@@ -6,5 +6,6 @@ public class TransferCreateModel
 	public int NewTeamId { get; set; }
 
 	public int OldTeamId { get; set; }
+
 	public decimal TransferValue { get; set; }
 }

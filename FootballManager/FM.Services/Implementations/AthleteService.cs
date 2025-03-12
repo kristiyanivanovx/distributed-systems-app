@@ -87,7 +87,7 @@ namespace FM.Services.Implementations
 		}
 
 		/// <inheritdoc/>
-		public async Task<CreateAthleteResponse> SaveAsync(CreateAthleteRequest request)
+		public async Task<CreateAthleteResponse> CreateAthleteAsync(CreateAthleteRequest request)
 		{
 			CreateAthleteResponse response = new();
 

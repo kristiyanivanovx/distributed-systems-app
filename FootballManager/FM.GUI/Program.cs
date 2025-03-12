@@ -4,21 +4,25 @@ using FM.Services.Messaging.Responses;
 using FM.Data.Entities;
 using Spectre.Console;
 using Spectre.Console.Cli;
-using static FM.Data.Entities.Athlete;
 using FM.Services.Messaging.Requests;
 using System.Text;
 using FM.Services.Messaging;
 using Azure.Core;
 using System.Web;
 using FM.Services.Messaging.Authentication;
+using FM.Data.Enums;
 
 namespace FM.GUI
 {
 	public class Program
 	{
 		static HttpClient client = new HttpClient();
+		
 		const string baseUrl = "https://localhost:7073/api/";
+		const string athletesControllerUrl = "athletes";
+
 		static string token = null;
+
 		static async Task Main(string[] args)
 		{
 			
@@ -53,7 +57,6 @@ namespace FM.GUI
 						await HandleAthletes();
 						break;
 					}
-
 					case "6":
 					{
 						exit = true;
@@ -135,7 +138,7 @@ namespace FM.GUI
 			{
 				case "1":
 				{
-					var response = await client.GetAsync(baseUrl + "athlete");
+					var response = await client.GetAsync(baseUrl + athletesControllerUrl);
 					
 					string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -165,7 +168,7 @@ namespace FM.GUI
 					AnsiConsole.Markup("Athlete name: ");
 					string athleteName = Console.ReadLine();
 
-					var response = await client.GetAsync(baseUrl + $"athlete/{athleteName}");
+					var response = await client.GetAsync(baseUrl + $"{athletesControllerUrl}/{athleteName}");
 
 					string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -225,7 +228,7 @@ namespace FM.GUI
 
 						var httpContent = new StringContent(JsonConvert.SerializeObject(athlete), Encoding.UTF8, "application/json");
 
-						var response = await client.PostAsync(baseUrl + "athlete", httpContent);
+						var response = await client.PostAsync(baseUrl + athletesControllerUrl, httpContent);
 
 						string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -289,7 +292,7 @@ namespace FM.GUI
 
 						var httpContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
 
-						var response = await client.PutAsync(baseUrl + $"athlete/{athleteId}", httpContent);
+						var response = await client.PutAsync(baseUrl + $"{athletesControllerUrl}/{athleteId}", httpContent);
 
 						string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -326,7 +329,7 @@ namespace FM.GUI
 					{
 						var athleteId = AnsiConsole.Ask<string>("Athlete id: ");
 
-						var response = await client.DeleteAsync(baseUrl + $"athlete/{athleteId}");
+						var response = await client.DeleteAsync(baseUrl + $"{athletesControllerUrl}/{athleteId}");
 
 						string responseBody = await response.Content.ReadAsStringAsync();
 
