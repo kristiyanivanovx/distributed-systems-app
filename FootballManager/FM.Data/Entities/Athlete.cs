@@ -1,23 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using FM.Data.Enums;
 
 namespace FM.Data.Entities;
 public class Athlete
 {
-	public enum AthletePosition
-	{
-		Goalkeeper,
-		RightFullback,
-		LeftFullback,
-		Centerback,
-		CenterMidfield,
-		AttackingMidfield,
-		DefensiveMidfield,
-		Forward,
-		LeftWing,
-		RightWing,
-	}
-
 	// Team, Athlete, Match, Club
 	[Key]
 	public int Id { get; set; }

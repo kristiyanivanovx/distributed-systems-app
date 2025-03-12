@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FM.Data.Enums;
 
 namespace FM.Services.Messaging.Requests
 {
@@ -18,6 +19,6 @@ namespace FM.Services.Messaging.Requests
 
 		public int TeamId { get; set; }
 
-		//public AthletePosition Position { get; set; }
+		public AthletePosition Position { get; set; }
 	}
 }

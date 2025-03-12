@@ -1,4 +1,6 @@
-﻿namespace FM.Services.Messaging.Requests
+﻿using FM.Data.Enums;
+
+namespace FM.Services.Messaging.Requests
 {
 	public class AthleteModel
 	{
@@ -10,6 +12,6 @@
 
 		public string Nationality { get; set; }
 
-		//public AthletePosition Position { get; set; }
+		public AthletePosition Position { get; set; }
 	}
 }

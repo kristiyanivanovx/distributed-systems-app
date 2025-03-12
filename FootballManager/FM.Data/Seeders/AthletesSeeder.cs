@@ -1,4 +1,5 @@
 ﻿using FM.Data.Entities;
+using FM.Data.Enums;
 using static FM.Data.Entities.Athlete;
 
 namespace FM.Data.Seeders;

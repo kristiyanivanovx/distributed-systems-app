@@ -47,6 +47,7 @@ namespace FM.Services.Implementations
 					MarketValue = athlete.MarketValue,
 					TeamName = athlete.Team?.Name ?? "No team",
 					TeamId = athlete.TeamId,
+					Position = athlete.Position.ToString(),
 				});
 			}
 
@@ -78,6 +79,7 @@ namespace FM.Services.Implementations
 				MarketValue = athlete.MarketValue,
 				TeamName = athlete.Team?.Name ?? "No team",
 				TeamId = athlete.TeamId,
+				Position = athlete.Position.ToString(),
 			};
 
 			response.StatusCode = Messaging.BusinessStatusCodeEnum.Success;
@@ -97,7 +99,8 @@ namespace FM.Services.Implementations
 					LastName = request.Athlete.LastName,
 					Nationality = request.Athlete.Nationality,
 					MarketValue = request.Athlete.MarketValue,
-					TeamId = request.Athlete.TeamId
+					TeamId = request.Athlete.TeamId,
+					Position = request.Athlete.Position
 				};
 
 				await _context.Athletes.AddAsync(athlete);
@@ -136,6 +139,7 @@ namespace FM.Services.Implementations
 				athlete.LastName = request.Athlete?.LastName ?? athlete.LastName;
 				athlete.Nationality = request.Athlete?.Nationality ?? athlete.Nationality;
 				athlete.MarketValue = request.Athlete?.MarketValue ?? athlete.MarketValue;
+				athlete.Position = request.Athlete?.Position ?? athlete.Position;
 
 				if (request.Athlete?.TeamId.HasValue == true)
 				{

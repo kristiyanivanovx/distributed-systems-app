@@ -1,4 +1,6 @@
-﻿namespace FM.Services.Messaging.Responses
+﻿using FM.Data.Enums;
+
+namespace FM.Services.Messaging.Responses
 {
 	public class AthleteViewModel
 	{
@@ -15,5 +17,7 @@
 		public int? TeamId { get; set; }
 
 		public string? TeamName { get; set; }
+
+		public string Position { get; set; }
 	}
 }
