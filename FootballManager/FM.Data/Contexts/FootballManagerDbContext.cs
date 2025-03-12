@@ -27,8 +27,8 @@ namespace FM.Data.Contexts
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+			modelBuilder.Entity<Team>().HasData(new TeamSeeder().Seed()); 
 			modelBuilder.Entity<Athlete>().HasData(new AthletesSeeder().Seed());
-			modelBuilder.Entity<Team>().HasData(new TeamSeeder().Seed());
 
 			modelBuilder.Entity<Athlete>()
 				.Property(b => b.CreatedAt)

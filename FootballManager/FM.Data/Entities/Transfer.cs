@@ -15,6 +15,7 @@ public class Transfer
 	[Required]
 	[Column(TypeName = "decimal(19, 2)")]
 	public required decimal TransferValue { get; set; }
+	public bool IsActive { get; set; } = true;
 	[ForeignKey(nameof(AthleteId))]
 	public Athlete Athlete { get; set; }
 	[ForeignKey(nameof(NewTeamId))]

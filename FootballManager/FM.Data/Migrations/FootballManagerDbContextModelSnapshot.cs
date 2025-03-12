@@ -76,7 +76,7 @@ namespace FM.Data.Migrations
                             MarketValue = 200000000m,
                             Nationality = "Portugal",
                             Position = 7,
-                            TeamId = -2
+                            TeamId = -4
                         },
                         new
                         {
@@ -100,7 +100,7 @@ namespace FM.Data.Migrations
                             MarketValue = 230000000m,
                             Nationality = "France",
                             Position = 7,
-                            TeamId = -4
+                            TeamId = -2
                         },
                         new
                         {
@@ -112,7 +112,7 @@ namespace FM.Data.Migrations
                             MarketValue = 100000000m,
                             Nationality = "Brazil",
                             Position = 8,
-                            TeamId = -1
+                            TeamId = -4
                         },
                         new
                         {
@@ -124,7 +124,7 @@ namespace FM.Data.Migrations
                             MarketValue = 110000000m,
                             Nationality = "Columbia",
                             Position = 8,
-                            TeamId = -3
+                            TeamId = -2
                         },
                         new
                         {
@@ -136,7 +136,7 @@ namespace FM.Data.Migrations
                             MarketValue = 200000000m,
                             Nationality = "Brazil",
                             Position = 8,
-                            TeamId = -4
+                            TeamId = -5
                         },
                         new
                         {
@@ -148,7 +148,7 @@ namespace FM.Data.Migrations
                             MarketValue = 180000000m,
                             Nationality = "Spain",
                             Position = 9,
-                            TeamId = -2
+                            TeamId = -4
                         },
                         new
                         {
@@ -160,7 +160,7 @@ namespace FM.Data.Migrations
                             MarketValue = 150000000m,
                             Nationality = "England",
                             Position = 9,
-                            TeamId = -5
+                            TeamId = -1
                         },
                         new
                         {
@@ -172,7 +172,7 @@ namespace FM.Data.Migrations
                             MarketValue = 160000000m,
                             Nationality = "England",
                             Position = 9,
-                            TeamId = -4
+                            TeamId = -2
                         },
                         new
                         {
@@ -184,7 +184,7 @@ namespace FM.Data.Migrations
                             MarketValue = 1400000000m,
                             Nationality = "England",
                             Position = 5,
-                            TeamId = -5
+                            TeamId = -2
                         },
                         new
                         {
@@ -196,7 +196,7 @@ namespace FM.Data.Migrations
                             MarketValue = 120000000m,
                             Nationality = "Germany",
                             Position = 5,
-                            TeamId = -5
+                            TeamId = -3
                         },
                         new
                         {
@@ -220,7 +220,7 @@ namespace FM.Data.Migrations
                             MarketValue = 90000000m,
                             Nationality = "England",
                             Position = 5,
-                            TeamId = -3
+                            TeamId = -1
                         },
                         new
                         {
@@ -232,7 +232,7 @@ namespace FM.Data.Migrations
                             MarketValue = 800000000m,
                             Nationality = "Uruguay",
                             Position = 4,
-                            TeamId = -5
+                            TeamId = -3
                         },
                         new
                         {
@@ -244,7 +244,7 @@ namespace FM.Data.Migrations
                             MarketValue = 100000000m,
                             Nationality = "England",
                             Position = 4,
-                            TeamId = -5
+                            TeamId = -3
                         },
                         new
                         {
@@ -256,7 +256,7 @@ namespace FM.Data.Migrations
                             MarketValue = 140000000m,
                             Nationality = "France",
                             Position = 4,
-                            TeamId = -2
+                            TeamId = -3
                         },
                         new
                         {
@@ -268,7 +268,7 @@ namespace FM.Data.Migrations
                             MarketValue = 130000000m,
                             Nationality = "Argentina",
                             Position = 4,
-                            TeamId = -3
+                            TeamId = -1
                         },
                         new
                         {
@@ -316,7 +316,7 @@ namespace FM.Data.Migrations
                             MarketValue = 80000000m,
                             Nationality = "Ecuador",
                             Position = 6,
-                            TeamId = -3
+                            TeamId = -1
                         },
                         new
                         {
@@ -340,7 +340,7 @@ namespace FM.Data.Migrations
                             MarketValue = 890000000m,
                             Nationality = "France",
                             Position = 6,
-                            TeamId = -1
+                            TeamId = -4
                         },
                         new
                         {
@@ -352,7 +352,7 @@ namespace FM.Data.Migrations
                             MarketValue = 132000000m,
                             Nationality = "Portugal",
                             Position = 6,
-                            TeamId = -3
+                            TeamId = -2
                         },
                         new
                         {
@@ -376,7 +376,7 @@ namespace FM.Data.Migrations
                             MarketValue = 120000000m,
                             Nationality = "France",
                             Position = 3,
-                            TeamId = -2
+                            TeamId = -3
                         },
                         new
                         {
@@ -388,7 +388,7 @@ namespace FM.Data.Migrations
                             MarketValue = 120000000m,
                             Nationality = "Croatia",
                             Position = 2,
-                            TeamId = -4
+                            TeamId = -3
                         },
                         new
                         {
@@ -400,7 +400,7 @@ namespace FM.Data.Migrations
                             MarketValue = 160000000m,
                             Nationality = "Brazil",
                             Position = 3,
-                            TeamId = -2
+                            TeamId = -3
                         },
                         new
                         {
@@ -412,7 +412,7 @@ namespace FM.Data.Migrations
                             MarketValue = 136000000m,
                             Nationality = "Italy",
                             Position = 3,
-                            TeamId = -2
+                            TeamId = -3
                         },
                         new
                         {
@@ -424,7 +424,7 @@ namespace FM.Data.Migrations
                             MarketValue = 74000000m,
                             Nationality = "England",
                             Position = 1,
-                            TeamId = -5
+                            TeamId = -3
                         },
                         new
                         {
@@ -436,7 +436,7 @@ namespace FM.Data.Migrations
                             MarketValue = 112000000m,
                             Nationality = "Portugal",
                             Position = 3,
-                            TeamId = -3
+                            TeamId = -2
                         },
                         new
                         {
@@ -448,7 +448,7 @@ namespace FM.Data.Migrations
                             MarketValue = 102000000m,
                             Nationality = "Spain",
                             Position = 3,
-                            TeamId = -1
+                            TeamId = -3
                         },
                         new
                         {
@@ -460,7 +460,7 @@ namespace FM.Data.Migrations
                             MarketValue = 102000000m,
                             Nationality = "Argentina",
                             Position = 3,
-                            TeamId = -5
+                            TeamId = -1
                         },
                         new
                         {
@@ -472,7 +472,7 @@ namespace FM.Data.Migrations
                             MarketValue = 130000000m,
                             Nationality = "France",
                             Position = 1,
-                            TeamId = -4
+                            TeamId = -2
                         },
                         new
                         {
@@ -484,7 +484,7 @@ namespace FM.Data.Migrations
                             MarketValue = 82000000m,
                             Nationality = "Morroco",
                             Position = 1,
-                            TeamId = -4
+                            TeamId = -3
                         },
                         new
                         {
@@ -496,7 +496,7 @@ namespace FM.Data.Migrations
                             MarketValue = 67000000m,
                             Nationality = "Italy",
                             Position = 2,
-                            TeamId = -2
+                            TeamId = -4
                         },
                         new
                         {
@@ -508,7 +508,7 @@ namespace FM.Data.Migrations
                             MarketValue = 102000000m,
                             Nationality = "Portugal",
                             Position = 2,
-                            TeamId = -5
+                            TeamId = -3
                         },
                         new
                         {
@@ -544,7 +544,7 @@ namespace FM.Data.Migrations
                             MarketValue = 150000000m,
                             Nationality = "Portugal",
                             Position = 0,
-                            TeamId = -4
+                            TeamId = -2
                         },
                         new
                         {
@@ -556,7 +556,7 @@ namespace FM.Data.Migrations
                             MarketValue = 102000000m,
                             Nationality = "Spain",
                             Position = 0,
-                            TeamId = -2
+                            TeamId = -3
                         },
                         new
                         {
@@ -568,7 +568,7 @@ namespace FM.Data.Migrations
                             MarketValue = 102000000m,
                             Nationality = "Switzerland",
                             Position = 0,
-                            TeamId = -1
+                            TeamId = -4
                         },
                         new
                         {
@@ -580,7 +580,7 @@ namespace FM.Data.Migrations
                             MarketValue = 130000000m,
                             Nationality = "Italy",
                             Position = 0,
-                            TeamId = -3
+                            TeamId = -4
                         },
                         new
                         {
@@ -592,7 +592,7 @@ namespace FM.Data.Migrations
                             MarketValue = 99000000m,
                             Nationality = "Italy",
                             Position = 0,
-                            TeamId = -4
+                            TeamId = -1
                         },
                         new
                         {
@@ -604,7 +604,7 @@ namespace FM.Data.Migrations
                             MarketValue = 104000000m,
                             Nationality = "Cameroon",
                             Position = 0,
-                            TeamId = -3
+                            TeamId = -5
                         },
                         new
                         {
@@ -616,7 +616,7 @@ namespace FM.Data.Migrations
                             MarketValue = 92000000m,
                             Nationality = "France",
                             Position = 0,
-                            TeamId = -3
+                            TeamId = -5
                         },
                         new
                         {
@@ -628,7 +628,7 @@ namespace FM.Data.Migrations
                             MarketValue = 30000000m,
                             Nationality = "France",
                             Position = 0,
-                            TeamId = -1
+                            TeamId = -3
                         },
                         new
                         {
@@ -640,7 +640,7 @@ namespace FM.Data.Migrations
                             MarketValue = 540000000m,
                             Nationality = "Spain",
                             Position = 0,
-                            TeamId = -5
+                            TeamId = -2
                         },
                         new
                         {
@@ -652,7 +652,7 @@ namespace FM.Data.Migrations
                             MarketValue = 760000000m,
                             Nationality = "Ukraine",
                             Position = 0,
-                            TeamId = -3
+                            TeamId = -4
                         });
                 });
 
@@ -750,6 +750,9 @@ namespace FM.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getutcdate()");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<int>("NewTeamId")
                         .HasColumnType("int");
