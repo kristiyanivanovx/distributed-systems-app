@@ -36,5 +36,4 @@ public class Athlete
 	public DateTime CreatedAt { get; set; }
 	[ForeignKey(nameof(TeamId))]
 	public Team Team { get; set; }
-
 }
