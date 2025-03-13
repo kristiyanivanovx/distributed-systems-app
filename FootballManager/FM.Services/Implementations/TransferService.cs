@@ -47,7 +47,8 @@ namespace FM.Services.Implementations
 					Id = transfer.Id,
 					NewTeamName = transfer.NewTeam.Name,
 					OldTeamName = transfer.OldTeam.Name,
-					AthleteName = $"{transfer.Athlete.FirstName} {transfer.Athlete.LastName}",	
+					AthleteName = $"{transfer.Athlete.FirstName} {transfer.Athlete.LastName}",
+					TransferValue = transfer.TransferValue
 				});
 			}
 
