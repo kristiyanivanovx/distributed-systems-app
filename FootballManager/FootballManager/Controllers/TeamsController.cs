@@ -6,6 +6,7 @@ using FM.Services.Messaging.Requests;
 using FM.Services.Messaging.Responses;
 using FM.Services.Messaging.Teams.Requests;
 using FM.Services.Messaging.Teams.Responses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -50,6 +51,7 @@ namespace FM.Web.Controllers
 		/// </summary>
 		/// <returns>Return null if not successful.</returns>
 		[HttpPost]
+		[Authorize]
 		[ProducesResponseType(typeof(CreateTeamResponse), StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		public async Task<IActionResult> CreateTeam([FromBody] CreateTeamModel model)
@@ -60,6 +62,7 @@ namespace FM.Web.Controllers
 		/// </summary>
 		/// <returns>Return null if not successful.</returns>
 		[HttpPut("{id}")]
+		[Authorize]
 		[ProducesResponseType(typeof(UpdateTeamResponse), StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<IActionResult> UpdateTeam([FromRoute] int id, [FromBody] UpdateTeamRequest request)
@@ -70,6 +73,7 @@ namespace FM.Web.Controllers
 		/// </summary>
 		/// <returns>Return null if not successful.</returns>
 		[HttpDelete("{id}")]
+		[Authorize]
 		[ProducesResponseType(typeof(DeleteTeamResponse), StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		public async Task<IActionResult> SoftDeleteTeam([FromRoute] int id)

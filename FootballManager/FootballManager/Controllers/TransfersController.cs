@@ -50,6 +50,7 @@ namespace FM.Web.Controllers
 		/// Save transfer.
 		/// </summary>
 		/// <returns>Return null if not successful.</returns>
+		[Authorize]
 		[HttpPost]
 		[ProducesResponseType(typeof(CreateAthleteResponse), StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -63,6 +64,7 @@ namespace FM.Web.Controllers
 		/// </summary>
 		/// <returns>Return null if not successful.</returns>
 		[HttpDelete("{id}")]
+		[Authorize]
 		[ProducesResponseType(typeof(DeleteTransferResponse), StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]

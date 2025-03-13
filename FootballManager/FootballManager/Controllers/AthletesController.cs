@@ -49,7 +49,8 @@ namespace FM.Web.Controllers
         /// </summary>
         /// <returns>Return null if not successful.</returns>
         [HttpPost]
-        [ProducesResponseType(typeof(CreateAthleteResponse), StatusCodes.Status200OK)]
+		[Authorize]
+		[ProducesResponseType(typeof(CreateAthleteResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
@@ -61,7 +62,8 @@ namespace FM.Web.Controllers
         /// </summary>
         /// <returns>Return null if not successful.</returns>
         [HttpPut("{id}")]
-        [ProducesResponseType(typeof(UpdateAthleteResponse), StatusCodes.Status200OK)]
+		[Authorize]
+		[ProducesResponseType(typeof(UpdateAthleteResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> UpdateAthlete([FromRoute] int id, [FromBody] UpdateAthleteRequest request)
@@ -72,6 +74,7 @@ namespace FM.Web.Controllers
 		/// </summary>
 		/// <returns>Return null if not successful.</returns>
 		[HttpDelete("{id}")]
+		[Authorize]
 		[ProducesResponseType(typeof(DeleteAthleteResponse), StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(typeof(ServiceResponseError), StatusCodes.Status500InternalServerError)]
