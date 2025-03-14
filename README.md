@@ -4,3 +4,5 @@ applying migration: ```dotnet ef database update --verbose --project FM.Data --s
 ### MacOS
 
 https://hasura.io/learn/database/microsoft-sql-server/installation/3-installing-mssql-mac/
+
+https://devblogs.microsoft.com/azure-sql/development-with-sql-in-containers-on-macos/

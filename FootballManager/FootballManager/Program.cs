@@ -19,6 +19,7 @@ namespace FM.Web
 
 			// Add services to the container.
 			var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");
+			//var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionStringMac");
 			string assemblyName = Assembly.GetExecutingAssembly().GetName().Name ?? "wrong name";
 			builder.Services.AddDbContext<FootballManagerDbContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly("FM.Data")));
 
