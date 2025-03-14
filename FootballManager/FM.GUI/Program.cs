@@ -13,6 +13,8 @@ using FM.Services.Messaging.Authentication;
 using FM.Data.Enums;
 using FM.Services.Messaging.Teams.Responses;
 using FM.Services.Messaging.Teams.Requests;
+using System.Net.Http.Headers;
+using System.Net.Http;
 
 namespace FM.GUI
 {
@@ -24,6 +26,9 @@ namespace FM.GUI
 		const string athletesControllerUrl = "athletes";
 		const string teamControllerUrl = "teams";
 		const string transferControllerUrl = "transfers";
+
+		const string UnauthorizedErrorMessage = "[red]Not authorized. Log in to continue[/]";
+		const string AlreadyLoggedInErrorMessage = "[red]Already logged in.[/]";
 
 		static string token = null;
 
@@ -84,6 +89,11 @@ namespace FM.GUI
 
 		static async Task HandleRegister()
 		{
+			if (token is not null)
+			{
+				AnsiConsole.MarkupLine(AlreadyLoggedInErrorMessage);
+				return;
+			}
 			var username = AnsiConsole.Ask<string>("Enter username: ");
 			var password = AnsiConsole.Prompt(
 				new TextPrompt<string>("Enter password: ")
@@ -109,9 +119,17 @@ namespace FM.GUI
 
 			AnsiConsole.MarkupLine($"[green]User registered successfully![/]");
 			token = responseDeserialsed.Token;
+			client.DefaultRequestHeaders.Authorization
+						 = new AuthenticationHeaderValue("Bearer", token);
 		}
 		static async Task HandleLogin()
 		{
+			if (token is not null)
+			{
+				AnsiConsole.MarkupLine(AlreadyLoggedInErrorMessage);
+				return;
+			}
+
 			var username = AnsiConsole.Ask<string>("Enter username: ");
 			var password = AnsiConsole.Prompt(
 				new TextPrompt<string>("Enter password: ")
@@ -137,6 +155,8 @@ namespace FM.GUI
 
 			AnsiConsole.MarkupLine($"[green]User logged in successfully![/]");
 			token = responseDeserialsed.Token;
+			client.DefaultRequestHeaders.Authorization
+						 = new AuthenticationHeaderValue("Bearer", token);
 		}
 		static async Task HandleAthletes()
 		{
@@ -146,9 +166,9 @@ namespace FM.GUI
 				AnsiConsole.MarkupLine("Athlete menu. Select an option: ");
 				AnsiConsole.MarkupLine("1. Get all athletes");
 				AnsiConsole.MarkupLine("2. Get athlete by name");
-				AnsiConsole.MarkupLine("3. Create athlete");
-				AnsiConsole.MarkupLine("4. Update athlete");
-				AnsiConsole.MarkupLine("5. Delete athlete");
+				AnsiConsole.MarkupLine(FormatWithAuth("3. Create athlete"));
+				AnsiConsole.MarkupLine(FormatWithAuth("4. Update athlete"));
+				AnsiConsole.MarkupLine(FormatWithAuth("5. Delete athlete"));
 				AnsiConsole.MarkupLine("6. Back");
 
 				string userInput = AnsiConsole.Ask<string>("Choose option: ");
@@ -231,6 +251,12 @@ namespace FM.GUI
 					case "3":
 						{
 							AnsiConsole.MarkupLine("Athlete [blue]create[/] form");
+							if (token is null)
+							{
+								AnsiConsole.MarkupLine(UnauthorizedErrorMessage);
+								break;
+							}
+
 							var athleteFirstName = AnsiConsole.Ask<string>("Athlete first name: ");
 							var athleteLastName = AnsiConsole.Ask<string>("Athlete last name: ");
 							var athleteNationality = AnsiConsole.Ask<string>("Athlete nationality: ");
@@ -335,6 +361,12 @@ namespace FM.GUI
 					case "4":
 						{
 							AnsiConsole.MarkupLine("Athlete [orange1]update[/] form");
+							if (token is null)
+							{
+								AnsiConsole.MarkupLine(UnauthorizedErrorMessage);
+								break;
+							}
+
 							var athleteId = AnsiConsole.Ask<string>("Athlete id: ");
 
 							var athleteFirstName = AnsiConsole.Ask<string>("Athlete first name: ");
@@ -442,6 +474,12 @@ namespace FM.GUI
 					case "5":
 						{
 							AnsiConsole.MarkupLine("Athlete [red]delete[/] form");
+							if (token is null)
+							{
+								AnsiConsole.MarkupLine(UnauthorizedErrorMessage);
+								break;
+							}
+
 							var athleteId = AnsiConsole.Ask<string>("Athlete id: ");
 
 							var response = await client.DeleteAsync(baseUrl + $"{athletesControllerUrl}/{athleteId}");
@@ -492,9 +530,9 @@ namespace FM.GUI
 				AnsiConsole.MarkupLine("Team menu. Select an option: ");
 				AnsiConsole.MarkupLine("1. Get all teams");
 				AnsiConsole.MarkupLine("2. Get team by id");
-				AnsiConsole.MarkupLine("3. Create team");
-				AnsiConsole.MarkupLine("4. Update team");
-				AnsiConsole.MarkupLine("5. Delete team");
+				AnsiConsole.MarkupLine(FormatWithAuth("3. Create team"));
+				AnsiConsole.MarkupLine(FormatWithAuth("4. Update team"));
+				AnsiConsole.MarkupLine(FormatWithAuth("5. Delete team"));
 				AnsiConsole.MarkupLine("6. Back");
 
 				string userInput = AnsiConsole.Ask<string>("Choose option: ");
@@ -568,6 +606,12 @@ namespace FM.GUI
 					case "3": 
 					{
 						AnsiConsole.MarkupLine("Team [blue]create[/] form");
+						if (token is null)
+						{
+							AnsiConsole.MarkupLine(UnauthorizedErrorMessage);
+							break;
+						}
+
 						var teamName = AnsiConsole.Ask<string>("Team name: ");
 						var teamCity = AnsiConsole.Ask<string>("Team city: ");
 						var teamEarnings = AnsiConsole.Ask<decimal>("Team earnings: ");
@@ -612,6 +656,12 @@ namespace FM.GUI
 					case "4":
 					{
 						AnsiConsole.MarkupLine("Team [orange1]update[/] form");
+						if (token is null)
+						{
+							AnsiConsole.MarkupLine(UnauthorizedErrorMessage);
+							break;
+						}
+
 						var teamId = AnsiConsole.Ask<int>("Team id: ");
 
 						var teamName = AnsiConsole.Ask<string>("Team name: ");
@@ -656,6 +706,12 @@ namespace FM.GUI
 					case "5":
 					{
 						AnsiConsole.MarkupLine("Team [red]deletion[/] form");
+						if (token is null)
+						{
+							AnsiConsole.MarkupLine(UnauthorizedErrorMessage);
+							break;
+						}
+
 						var teamId = AnsiConsole.Ask<string>("Team id: ");
 
 						var response = await client.DeleteAsync(baseUrl + $"{teamControllerUrl}/{teamId}");
@@ -707,8 +763,8 @@ namespace FM.GUI
 				AnsiConsole.MarkupLine("Transfers menu. Select an option: ");
 				AnsiConsole.MarkupLine("1. Get all transfers");
 				AnsiConsole.MarkupLine("2. Get transfer by id");
-				AnsiConsole.MarkupLine("3. Create transfer");
-				AnsiConsole.MarkupLine("4. Delete transfer");
+				AnsiConsole.MarkupLine(FormatWithAuth("3. Create transfer"));
+				AnsiConsole.MarkupLine(FormatWithAuth("4. Delete transfer"));
 				AnsiConsole.MarkupLine("5. Back");
 
 				string userInput = AnsiConsole.Ask<string>("Choose option: ");
@@ -786,6 +842,11 @@ namespace FM.GUI
 					case "3":
 					{
 						AnsiConsole.MarkupLine("Transfer [blue]create[/] form");
+						if (token is null)
+						{
+							AnsiConsole.MarkupLine(UnauthorizedErrorMessage);
+							break;
+						}
 
 						AnsiConsole.Markup("Athlete name: ");
 						string athleteName = Console.ReadLine();
@@ -853,6 +914,7 @@ namespace FM.GUI
 
 						CreateTransferResponse responseDeserialsed = JsonConvert.DeserializeObject<CreateTransferResponse>(responseBody);
 
+
 						switch (responseDeserialsed.StatusCode)
 						{
 							case BusinessStatusCodeEnum.Success:
@@ -877,6 +939,12 @@ namespace FM.GUI
 					case "4":
 					{
 						AnsiConsole.MarkupLine("Transfer [red]delete[/] form");
+						if (token is null)
+						{
+							AnsiConsole.MarkupLine(UnauthorizedErrorMessage);
+							break;
+						}
+
 						var transferId = AnsiConsole.Ask<string>("Transfer id: ");
 
 						var response = await client.DeleteAsync(baseUrl + $"{transferControllerUrl}/{transferId}");
@@ -917,6 +985,12 @@ namespace FM.GUI
 					}
 				}
 			}
+		}
+	
+		static string FormatWithAuth(string text)
+		{
+			if (token is null) return $"[red]{text} [[Unauthorized]] [/]";
+			return text;
 		}
 	}
 }
